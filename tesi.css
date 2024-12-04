@@ -1,0 +1,1788 @@
+:root{
+    --myMainC: #cdb4db;
+    --mySecondC: #ffc8dd;
+    --mythirdC: #ffafcc;
+    --myForthC: #bde0fe;
+    --mylight: #a2d2ff;
+    --myGreen: #CDE4CE;
+    --myBackgroundColor: #cdb4db52;
+    --mytext:"Archivo Black", serif;
+    --myfont:"AmoresaFont",sans-serif;
+    --myfontSANS:"HelveticaFont",sans-serif;
+    --myfontSERIF: "Bodoni Moda", serif;
+    
+}
+
+@font-face {
+    font-family: "AmoresaFont";
+    src: url("./Amoresa/Amoresa.woff2") format("woff2");
+}
+@font-face {
+    font-family: "HelveticaFont" ;
+    src: url("./HELVETICA/helvetica-light-587ebe5a59211.ttf") format("truetype");
+}
+@font-face {
+    font-family: "BentonFont";
+    src: url("./BENTON/Benton\ Modern\ Font\ Family/BentonModDispCond-Regular.otf") format("opentype");
+}
+
+.bodoni-moda{
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.archivo-black-regular {
+    font-family: "Archivo Black", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+/* caricamento inizio */
+.colCaricamento{
+    background-color: white;
+}
+
+.cup{
+    position: relative;
+    width: 90px;
+    height: 60px;
+    border: 4px solid white;
+    box-shadow: 0 0 0 4px var(--myMainC);
+    border-radius: 10px 10px 60px 60px;
+    background: url("./Media/coffePink.png");
+    background-repeat: repeat-x;
+    background-position: 0 130px;
+    left: 0;
+    top: 0;
+    animation: filling 4s infinite;
+}
+
+@keyframes filling {
+    0%,100%{
+        background-position: 0 130px;
+    }
+    50%{
+        background-position: 600px -70px;
+    }
+}
+
+
+
+
+.cup-handle{
+    width: 30px;
+    height: 27px;
+    border: 4px solid var(--myMainC);
+    border-radius: 20px 50px 50px 20px;
+    position: absolute;
+    top: -2px;
+    right:-34px;
+}
+
+.piattino{
+    height: 2px;
+    width: 110px;
+    border: 2px solid var(--myMainC);
+    border-radius:20px ;
+    position: absolute;
+    bottom: -15px;
+    left: -14px;
+}
+/* fine caricamento */
+
+/* INIZIO MENU TOGGLE BUTTON */
+
+
+.main {
+    
+    position: fixed; /* Posiziona l'elemento in modo fisso */
+    top: 0;          /* Imposta il posizionamento rispetto al bordo superiore */
+    left: 50%;       /* Centra orizzontalmente */
+    transform: translateX(-50%); /* Corregge il centro rispetto all'elemento */
+    text-align: center;
+    padding-top: 0px; /* Margine dall'alto (opzionale) */
+    text-align: center;
+    z-index: 2;
+}
+
+.hamburger {
+    position: relative;
+    width: 63px;
+    height: 63px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 20px;
+    
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 20px;
+        transform: rotate(0deg);
+        transition: all 0.4s cubic-bezier(0.54, -0.10, 0.57, 0.57);
+    }
+    
+    .hamburger-input {
+        position: absolute;
+        opacity: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        cursor: pointer;
+    }
+    
+    .hamburger-line {
+        width: 100%;
+        background: black;
+        height: 2px;
+        display: block;
+        border-radius: 6px;
+        transition: transform 0.4s cubic-bezier(0.54, -0.81, 0.57, 0.57);
+        position: relative;
+        
+        &.first,
+        &.third {
+            width: 50%;
+        }
+        
+        &.third {
+            margin-left: 50%;
+            transform-origin: left;
+        }
+    }
+}
+
+.menu-button-wrapper {
+    position: relative;
+    display: inline-block;
+    
+    .item-list {
+        z-index: 10000;
+        position: absolute;
+        top: 90px;
+        transform: translateX(-50%) scale(0);
+        transform-origin: center;
+        transition: all 0.4s cubic-bezier(0.54, -0.10, 0.57, 0.57);
+        background-color: rgba(255, 255, 255, 0.922);
+        color: black;
+        width: 200px;
+        left: 50%;
+        padding: 15px 0;
+        text-align: left;
+        border-radius: 100px;
+        font-weight: 300;
+        opacity: 0;
+        user-select: none;
+        text-align: center;
+        font-weight: 100;
+        
+        div {
+            padding: 10px 30px;
+            cursor: pointer;
+        }
+    }
+    
+    .clickable-div1:hover{
+        background-color: var(--myMainC);
+        color: white;
+        transition: .3s;
+    }
+    
+    
+    .clickable-div:hover{
+        
+    }
+    
+    .social{
+        text-decoration: none;
+        transition: .3;
+    }
+    
+    .social:visited{
+        color: black;
+        font-weight: 100;
+        text-decoration: none;
+    }
+    
+    .social:hover{
+        transform: scale(1.2);
+    }
+    
+    
+    
+    
+    .menu-button {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        left: 0;
+        z-index: 2;
+        opacity: 0;
+        cursor: pointer;
+    }
+}
+
+.menu-button {
+    &:checked ~ .item-list {
+        transform: translateX(-50%) scale(1);
+        border-radius: 20px;
+        opacity: 1;
+        user-select: auto;
+    }  
+    
+    &:checked ~ .icon-wrapper .hamburger-line.second {
+        transform: rotate(-45deg); 
+    }
+    
+    &:checked ~ .icon-wrapper .hamburger-line.first {
+        transform: translate(2px, 8px) rotate(-135deg);
+    }
+    
+    &:checked ~ .icon-wrapper .hamburger-line.third {
+        transform: translate(11px, -3px) rotate(-135deg);
+    }
+    
+    &:checked ~ .icon-wrapper .hamburger:before {
+        transform: rotate(45deg);
+    }
+}
+
+
+
+/* head inizio */
+.colPRIMASEZIONE{
+    height: 83vh;
+    width: 100%;
+}
+
+.col6PRIMASEZIONE{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenitoreLista{
+    height: 100%;
+}
+
+.uList{
+    list-style-type: none;
+    font-weight: 100;
+    color: var(--myMainC);
+    padding-left: 150px;
+    line-height: 120%;
+    font-size: 100%;
+    z-index: 2;
+    width: 30%;
+    padding-top: 10px;
+    z-index: 5;
+}
+
+
+.nomePROGETTO{
+    font-family: var(--myfont);
+    font-size: 600%;
+    position: relative;
+    top: 20px;
+    width: 80%;
+    z-index: 1200;
+    margin: 0;
+    color: white;
+    transform: rotate(-14deg);
+    
+}
+
+.fotoSezione1{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    z-index: 4;
+}
+
+.through{
+    font-size: 150%;
+}
+
+.the{
+    font-size: 50%;
+    position: relative;
+    bottom: 95px;
+    left: 120px;
+}
+
+.curtains{
+    position: relative;
+    bottom: 30px;
+    left: 80px;
+}
+
+.h6Progetto{
+    font-weight: 100;
+    margin-bottom: 70px;
+    font-size: 140%;
+    color: white;
+    line-height: 120%; 
+    z-index: 5;
+}
+
+
+
+
+@media (max-width: 1024px) {
+    /* Stili per schermi di laptop */
+    .uList{
+        list-style-type: none;
+        font-weight: 100;
+        color: var(--myMainC);
+        padding-left: 120px;
+        line-height: 120%;
+        font-size: 80%;
+        z-index: 2;
+        width: 30%;
+        padding-top: 10px;
+        z-index: 5;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .uList{
+        list-style-type: none;
+        font-weight: 100;
+        color: var(--myMainC);
+        padding-left: 80px;
+        line-height: 120%;
+        font-size: 80%;
+        z-index: 2;
+        width: 30%;
+        padding-top: 10px;
+        z-index: 5;
+    }
+    .nomePROGETTO{
+        font-family: var(--myfont);
+        font-size: 600%;
+        position: relative;
+        top: 20px;
+        right: 45px;
+        width: 80%;
+        z-index: 1200;
+        margin: 0;
+        color: white;
+        transform: rotate(-14deg);
+        
+    }
+}
+
+@media (max-width: 576px) {
+    /* Stili per schermi piccoli */
+    .h6Progetto{
+        font-weight: 100;
+        margin-bottom: 70px;
+        font-size: 80%;
+        color: white;
+        line-height: 120%; 
+        z-index: 5;
+    }
+    
+    .the{
+        font-size: 50%;
+        position: relative;
+        bottom: 70px;
+        left: 100px;
+    }
+    
+    .nomePROGETTO{
+        font-family: var(--myfont);
+        font-size: 450%;
+        position: relative;
+        top: 20px;
+        width: 80%;
+        z-index: 1200;
+        margin: 0;
+        color: white;
+        transform: rotate(-14deg);
+        
+    }
+    
+    
+    
+    .uList{
+        list-style-type: none;
+        font-weight: 100;
+        color:var(--myMainC);
+        padding-left: 80px;
+        line-height: 120%;
+        font-size: 50%;
+        z-index: 2;
+        width: 33%;
+        padding-top: 10px;
+        z-index: 5;
+    }
+    
+    
+}
+
+@media (max-width: 435px){
+    .h6Progetto{
+        font-weight: 100;
+        margin-bottom: 60px;
+        font-size: 70%;
+        color: white;
+        line-height: 120%; 
+        z-index: 5;
+        position: relative;
+        bottom: 50px;
+    }
+    
+    .the{
+        font-size: 50%;
+        position: relative;
+        bottom: 60px;
+        left: 80px;
+    }
+    
+    .through{
+        font-size: 150%;
+        position: relative;
+        
+    }
+    
+    
+    .curtains{
+        position: relative;
+        bottom: 30px;
+        left: 60px;
+    }
+    
+    .nomePROGETTO{
+        font-family: var(--myfont);
+        font-size: 350%;
+        position: relative;
+        right: 20px;
+        width: 80%;
+        z-index: 1200;
+        margin: 0;
+        color: white;
+        transform: rotate(-14deg);
+        bottom: 200px;
+        
+    }
+    
+    .uList{
+        list-style-type: none;
+        font-weight: 100;
+        color:var(--myMainC);
+        padding-left: 50px;
+        line-height: 120%;
+        font-size: 50%;
+        z-index: 2;
+        width: 33%;
+        padding-top: 10px;
+        z-index: 5;
+    }
+    
+    
+}
+
+/* fine prima sezione */
+
+/* inizio concept */
+
+.h1CONCEPT{
+    font-family: var(--myfontSERIF);
+    color: var(--myMainC);
+    font-size: 600%;
+    position: relative;
+    top: 30px;
+    padding-left: 10px;
+}
+
+/* .contenitorePARAGRAFOCONCEPT{
+height: 80%;
+width: 75%;
+} */
+
+.p1{
+    padding-left: 60px;
+}
+
+.p2{
+    padding-right: 62px;
+}
+
+.paragrafoCONCEPT{
+    color: black;
+    font-weight: 100;
+    font-size: 20px;
+    font-size: 130%;
+    width: 85%;
+    text-align: justify;
+    column-count: 2;
+    column-gap: 50px;
+}
+
+@media (max-width: 1024px) {
+    /* Stili per schermi di laptop */
+    .h1CONCEPT{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 500%;
+        position: relative;
+        top: 40px;
+    }
+    .paragrafoCONCEPT{
+        color: black;
+        font-weight: 100;
+        font-size: 20px;
+        font-size: 100%;
+        width: 93%;
+        text-align: justify;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .h1CONCEPT{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 70px;
+    }
+    
+    .contenitorePARAGRAFOCONCEPT{
+        height: 80%;
+        width: 100%;
+    }
+    
+    .paragrafoCONCEPT{
+        color: black;
+        font-weight: 100;
+        font-size: 20px;
+        font-size: 70%;
+        width: 80%;
+        text-align: justify;
+        column-count: 1;
+    }
+}
+
+@media (max-width: 576px){
+    .h1CONCEPT{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 60px;
+    }
+    
+    .paragrafoCONCEPT{
+        color: black;
+        font-weight: 100;
+        font-size: 20px;
+        font-size: 60%;
+        width: 120%;
+        text-align:justify;
+        word-spacing:0.1%;
+        text-align: justify;
+        hyphens: auto; /* Sillabazione automatica */
+        overflow-wrap: break-word; /* Permette la divisione di parole lunghe */
+        column-count: 1;
+    }
+    
+}
+
+@media (max-width: 435px){
+    .h1CONCEPT{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 40px;
+        position: relative;
+        top: 100px;
+    }
+    
+    .paragrafoCONCEPT{
+        color: black;
+        font-weight: 100;
+        font-size: 70%;
+        width: 120%;
+        word-spacing:0.1%;
+        text-align-last: left;
+        word-spacing: 0.05em;
+        overflow-wrap: break-word;
+        margin: 0 auto;
+        white-space: normal;
+        column-count: 1;
+    }
+    
+    .p1{
+        text-align: justify;
+        word-spacing: 0.01em;
+        overflow-wrap: break-word;
+        margin: 0 auto;
+        white-space: normal;
+        width: 200%;
+        
+    }
+    
+    .p2{
+        text-align: justify;
+        word-spacing: 0.01em;
+        overflow-wrap: break-word;
+        margin: 0 auto;
+        white-space: normal;
+        width: 200%;
+        
+    }
+}
+
+
+
+/* fine concept */
+
+
+/* inizio Sezione cards Doll */
+/* Card Wrapper */
+.wrapperCardDoll {
+    position: relative;
+    width: auto;
+    height: 89%;
+    max-width: 350px; /* Larghezza massima per uniformare le cards */
+    margin: 10px;
+    overflow: hidden;
+}
+
+/* Card Image */
+.imgDollCard {
+    width: 100%;
+    height: 150%; /* Altezza consistente per tutte le immagini */
+    object-fit: contain;
+    transition: 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Overlay Text */
+.pDollCard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffffe9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.6s ease-in-out;
+    cursor: pointer;
+    
+}
+
+
+
+/* Text Inside Card */
+.textContainer {
+    font-size: 80%; /* Proporzionato al contenitore */
+    text-align: start;
+    height: 100%;
+    padding: 15px;
+    opacity: 0;
+    transition: 0.6s ease-in-out;
+    font-weight: 100;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(80%);
+    text-align: justify;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* Hover Effects */
+.wrapperCardDoll:hover .pDollCard {
+    opacity: 1;
+}
+
+.wrapperCardDoll:hover .textContainer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.rowCardDolls{
+    height: 100vh;
+}
+
+/* Doll Name */
+.nameDoll {
+    font-family: var(--myfontSERIF);
+    color: var(--myMainC);
+    font-size: 200%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.card{
+    border: 0;
+}
+
+.card:hover{
+    border: 0;
+    transition: .6s;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    /* Stili per schermi di laptop */
+    .nameDoll {
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 200%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .textContainer {
+        font-size: 63%; /* Proporzionato al contenitore */
+        text-align: start;
+        height: 100%;
+        opacity: 0;
+        transition: 0.6s ease-in-out;
+        font-weight: 100;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(80%);
+        text-align: justify;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
+}
+
+
+@media (max-width: 768px){
+    .imgDollCard {
+        width: 100%;
+        height: 120%; /* Altezza consistente per tutte le immagini */
+        object-fit: contain;
+        transition: 0.3s ease-in-out;
+        background-color: #ffc8dd;
+    }
+    
+    .pDollCard {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 120%;
+        font-size: 60%;
+        display: flex;
+        opacity: 0;
+        transition: 0.6s ease-in-out;
+        cursor: pointer;
+    }
+    
+    .nameDoll {
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 200%;
+        text-align: center;
+        margin-bottom: 20px;
+        position: absolute;
+        width: 100%;
+        top: 270px;
+    }
+    
+    .wrapperCardDoll {
+        position: relative;
+        width: auto;
+        height: 89%;
+        max-width: 350px; /* Larghezza massima per uniformare le cards */
+        margin: 10px;
+        
+        
+    }
+    .colImg{
+        height: 80%;
+        width: 80%;
+        margin: 0;
+    }
+    
+    .textContainer {
+        font-size: 95%; /* Proporzionato al contenitore */
+        height: 100%;
+        opacity: 0;
+        transition: 0.6s ease-in-out;
+        font-weight: 100;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(80%);
+        display: flex;
+        align-items: start;
+    }
+    
+    .containerCardDolls{
+        height: 250vh;
+    }
+    
+    .wrapperCardDoll {
+        position: relative;
+        width: auto;
+        height: 60%;
+        max-width: 350px; /* Larghezza massima per uniformare le cards */
+        margin: 10px;
+    }
+    
+    .rowCardDolls{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}
+
+
+/* fine doll cards */
+
+/* inizio moodboard */
+
+.h1moodBoard{
+    font-family: var(--myfontSERIF);
+    color: var(--myMainC);
+    font-size: 600%;
+    width: 100vh;
+    z-index: 2;
+    padding-right: 22px;
+    text-align: end;
+}
+
+.colMoodboard{
+    padding: 0;
+}
+
+
+.contenitoreParagrafoMoodboard{
+    height: 80%;
+}
+
+
+.imgMoodboard {
+    width: 100%; /* Larghezza dinamica in base alla colonna */
+    height: 100%;
+    object-fit: cover; /* Assicura che l'immagine si adatti */
+    transition: transform 0.5s ease; /* Effetto zoom più naturale */
+    cursor: pointer;
+}
+
+
+.imgMoodboard:hover{
+    width: 100%; /* Larghezza dinamica in base alla colonna */
+    height: 140%;
+    transition: 1s;
+    z-index: 1;
+}
+
+.imgMoodboard:not(:hover){
+    transition: 1s;
+}
+
+
+
+@media (max-width: 1024px) {
+    /* Stili per schermi di laptop */
+    .h1moodBoard{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 80px;
+        width: 100vh;
+        z-index: 2;
+        padding-left: 10px;
+        text-align: end;
+    }
+}
+@media (max-width: 768px) {
+    .h1Moodboard{
+        font-family: var(--myfontSERIF);
+        color: white;
+        font-size: 70px;
+    }
+    
+    .imgMoodboard:hover{
+        width: 100%; /* Larghezza dinamica in base alla colonna */
+        height: 140%;
+        transition: 2s;
+        z-index: 1;
+    }
+    
+    .imgMoodboard:not(:hover){
+        transition: 1s;
+    }
+}
+
+@media (max-width: 576px){
+    .h1moodBoard{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 60px;
+        width: 100vh;
+        z-index: 2;
+        padding-left: 10px;
+        text-align: end;
+    }
+    
+    .imgMoodboard:hover{
+        width: 100%; /* Larghezza dinamica in base alla colonna */
+        height: 140%;
+        transition: 1s;
+        z-index: 1;
+    }
+    
+}
+
+@media (max-width: 435px){
+    .h1moodBoard{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 50px;
+        width: 100vh;
+        z-index: 2;
+        padding-left: 10px;
+        text-align: end;
+    }
+    .imgMoodboard:hover{
+        width: 100%; /* Larghezza dinamica in base alla colonna */
+        height: 140%;
+        transition: 1s;
+        z-index: 1;
+    }
+    
+    
+}
+
+.hMoodboard1{
+    height: 40%;
+}
+
+.hMoodboard2{
+    height: 35%;
+}
+
+.hMoodboard3{
+    height: 25%;
+}
+
+
+
+/* fine moodboard */
+
+/* inizio styling */
+
+.h1Styling{
+    font-family: var(--myfontSERIF);
+    color: var(--myMainC);
+    font-size:600%;
+    padding-right: 10px;
+}
+
+.contenitoreParagrafoStyling{
+    color: white;
+    font-weight: 100;
+    width: 100%;
+    height: 100%;
+}
+
+.colStyling{
+    height: 100vh;
+}
+
+.liBrands{
+    transform: translateY(-280%);
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: 100;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    height: 10%;
+}
+
+.rightToLeft{
+    position: relative;
+    display: flex;
+    font-size: 200%;
+    color: black;
+    height: 1%;
+    width: 100%;
+    animation-name: infiniteScroll;
+    animation-duration: 40s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.rightToLeft >*{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+@keyframes infiniteScroll {
+    0% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(-100%, 0, 0); }
+    100% { transform: translate3d(0%, 0, 0); }
+    
+}
+
+@media (max-width: 1024px) {
+    /* Stili per schermi di laptop */
+    .h1Styling{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size:500%;
+    }
+    .contenitoreParagrafoStyling{
+        color: white;
+        font-weight: 100;
+        width: 100%;
+        height: 300%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 80px;
+    }
+    
+    .colStyling{
+        height: 20vh;
+    }
+    
+    .liBrands{
+        transform: translateY(-280%);
+        white-space: nowrap;
+        text-transform: uppercase;
+        font-weight: 100;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-x: hidden;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+        height: 10%;
+    }
+}
+
+@media (max-width: 576px){
+    .h1Styling{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size:60px;
+        padding-right: 10px;
+    }
+    
+    
+    .liBrands{
+        transform: translateY(-280%);
+        white-space: nowrap;
+        text-transform: uppercase;
+        font-weight: 100;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-x: hidden;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+        height: 10%;
+        font-size: 10px;
+    }
+    
+}
+
+
+@media (max-width: 435px){
+    .h1Styling{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size:50px;
+        padding-right: 10px;
+    }
+    
+}
+
+/* fine styling */
+
+/* inizio makeup */
+.h1MakeUp{
+    font-family: var(--myfontSERIF);
+    color: var(--myMainC);
+    font-size: 600%;
+    padding-left: 10px;
+}
+
+.imgMakeUp{
+    height: 40%;
+    width: 15%;
+    border-radius: 20px;
+    cursor: pointer;
+    object-fit: contain;
+}
+
+.imgMakeUp:hover{
+    height: 70%;
+    width: 25%;
+    border-radius: 20px;
+    transition: 2s;
+}
+.imgMakeUp:not(:hover){
+    height: 50%;
+    width: 15%;
+    border-radius: 50%;
+    transition: 2s;
+    object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+    /* Stili per schermi di laptop */
+    .h1MakeUp{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 500%;
+    }
+}
+
+
+@media (max-width: 768px){
+    .h1MakeUp{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 70px;
+    }
+}
+
+@media (max-width: 576px){
+    .h1MakeUp{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 60px;
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 435px){
+    .h1MakeUp{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size:50px;
+        padding-right: 10px;
+    }
+    .imgMakeUp{
+        height: 40%;
+        width: 15%;
+        border-radius: 20px;
+        cursor: pointer;
+        object-fit: contain;
+    }
+    
+    .imgMakeUp:hover{
+        height: 70%;
+        width: 25%;
+        border-radius: 20px;
+        transition: 2s;
+    }
+    .imgMakeUp:not(:hover){
+        height: 50%;
+        width: 15%;
+        border-radius: 50%;
+        transition: 2s;
+        object-fit: contain;
+    }
+    
+}
+/* fine make up */
+
+/* inizio backstage */
+
+.h1Backstage{
+    font-family: var(--myfontSERIF);
+    color: var(--myMainC);
+    font-size: 600%;
+    padding-right: 22px;
+    overflow: hidden;
+}
+
+.colBackstage{
+    overflow-x: hidden;
+    padding: 0;
+}
+
+.imgBackstage{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+    /* Stili per schermi di laptop */
+    .h1Backstage{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 500%;
+    }
+}
+
+
+@media (max-width: 768px){
+    .h1Backstage{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 70px;
+    }
+    
+}
+
+@media (max-width: 576px){
+    .h1Backstage{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 60px;
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 435px){
+    .h1Backstage{
+        font-size: 50px;
+    }
+}
+/* .paragrafoMakeup{
+height: 100%;
+background-color: #a2d2ff;
+} */
+
+.spazioImg{
+    height: 33.38%;
+}
+/* fine backstage */
+
+
+/* Swiper editorial inizio */
+.h1Editorial{
+    font-family: var(--myfontSERIF);
+    font-size: 250%;
+    color: var(--myMainC);
+    padding-left: 10px;
+}
+
+.swiper-wrapper{
+    height: 100%;
+}
+
+.imgEditorial{
+    width: 225.39px;
+}
+
+.swiper{
+    width: 100%;
+    overflow: hidden;
+    height: 70%;
+}
+
+.swiper-slide{
+    background-position: center;
+    background-size: cover;
+    transform: scale(1.7);
+}
+
+.swiper-slide img{
+    display: block;
+    height: 100%;
+    border-radius: 7%;
+    object-fit: cover;
+}
+
+
+.swiperContainer{
+    width: 100%;
+    height: 70%;
+}
+
+@media (max-width: 1024px) {
+    /* Stili per schermi di laptop */
+    .h1Editorial{
+        font-family: var(--myfontSERIF);
+        font-size: 250%;
+        color: var(--myMainC);
+    }
+}
+
+
+@media (max-width: 768px){
+    .h1Editorial{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 70px;
+    }
+    
+}
+
+@media (max-width: 576px){
+    .h1Editorial{
+        font-family: var(--myfontSERIF);
+        font-size: 60px;
+        color: var(--myMainC);
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 435px){
+    .h1Editorial{
+        font-size: 50px;
+    }
+}
+/* swiper editorial fine */
+
+/* inizio movie / trailer */
+.h1Trailer{
+    font-family: var(--myfontSERIF);
+    font-size: 600%;
+    color: var(--myMainC);
+    width: 100%;
+    padding-left: 10px;
+}
+
+.colTrailer{
+    padding: 0;
+}
+
+.movie{
+    height: 90%;
+    width: 100%;
+}
+
+.h1Movie{
+    font-family: var(--myfontSERIF);
+    font-size: 600%;
+    color: var(--myMainC);
+    padding-right: 10px;
+}
+
+.colMovie{
+    padding: 0;
+    overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+    /* Stili per schermi di laptop */
+    .h1Trailer{
+        font-family: var(--myfontSERIF);
+        font-size: 500%;
+        color: var(--myMainC);
+        width: 100%;
+    }
+    .h1Movie{
+        font-family: var(--myfontSERIF);
+        font-size: 500%;
+        color: var(--myMainC);
+    }
+}
+
+@media (max-width: 768px){
+    .h1Movie{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 70px;
+    }
+    .h1Trailer{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 70px;
+    }
+    
+    
+}
+
+@media (max-width: 576px){
+    .h1Movie{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 60px;
+    }
+    .h1Trailer{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 435px){
+    .h1Movie{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 50px;
+    }
+    .h1Trailer{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 50px;
+    }
+}
+/* fine movie */
+
+/* inizio crediti */
+.containerCrediti{
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.colCreditiPadding{
+    padding: 0;
+    position: relative;
+    height: 100vh;
+    width: 100vh;
+}
+
+.colCrediti1{
+    height: 100%;
+    width: 100%;
+    border: 8px solid black;
+}
+
+.imgCrediti{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    display: block;
+}
+
+.bgDirectors{
+    position: absolute;
+}
+.bgDirectors1{
+    position: absolute;
+    top: 50%;
+}
+
+h6{
+    color: white;
+    font-weight: 100;
+}
+
+h5{
+    color: white;
+}
+
+.h6Directors{
+    color: black;
+    font-weight: 600;
+    position: relative;
+    left: 5%;
+    font-weight: 100;
+}
+
+.h5Directors{
+    color: black;
+    font-weight: bold;
+    position: relative;
+    left: 5%;
+    line-height: 100%;
+}
+
+.h5Make{
+    position: relative;
+    left: -5%;
+    line-height: 100%;
+    top: 20px;
+}
+
+.h6Make{
+    position: relative;
+    left: -5%;
+    line-height: 100%;
+    top: 20px;
+}
+
+.linkCredit{
+    text-decoration: none;
+    color: white;
+    font-weight: 100;
+}
+
+.linkCredit1{
+    text-decoration: none;
+    color: black;
+    font-weight: 200;
+}
+
+.linkCredit:hover{
+    text-decoration: underline;
+}
+
+.linkCredit1:hover{
+    text-decoration: underline;
+}
+
+.h1Credits{
+    color: white;
+    font-family: var(--myfontSERIF);
+    font-size: 600%;
+    transform: translateY(-350%);
+    position: relative;
+    bottom: 60px;
+}
+
+.mentors{
+    position: relative;
+    top: 60px;
+}
+
+.location{
+    position: relative;
+    left: -5%;
+}
+
+@media (max-width: 1024px) {
+    /* Stili per schermi di laptop */
+    .h1Credits{
+        color: white;
+        font-family: var(--myfontSERIF);
+        font-size: 500%;
+        transform: translateY(-350%);
+        position: relative;
+        bottom: 60px;
+    }
+    
+    .h6Directors{
+        color: black;
+        position: relative;
+        left: 5%;
+        font-weight: 100;
+        font-size: 13px;
+        
+    }
+    
+    .h5Directors{
+        color: black;
+        font-weight: bold;
+        position: relative;
+        left: 5%;
+        line-height: 100%;
+    }
+    
+    .h5Make{
+        position: relative;
+        left: -5%;
+        line-height: 100%;
+        font-size: 17px;
+    }
+    
+    .h6Make{
+        position: relative;
+        left: -5%;
+        line-height: 100%;
+        font-size: 13px;
+    }
+    
+    h6{
+        color: white;
+        font-weight: 100;
+        font-size: 13px;
+    }
+    
+    h5{
+        color: white;
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 768px){
+    .h1Credits{
+        color: white;
+        font-family: var(--myfontSERIF);
+        font-size: 70px;
+        transform: translateY(-350%);
+        position: relative;
+        bottom: 70px;
+    }
+    
+    .h6Directors{
+        color: black;
+        position: relative;
+        left: 5%;
+        font-weight: 100;
+        font-size: 10px;
+        
+    }
+    
+    .h5Directors{
+        color: black;
+        font-weight: bold;
+        position: relative;
+        left: 5%;
+        line-height: 100%;
+    }
+    
+    .h5Make{
+        position: relative;
+        left: -5%;
+        line-height: 100%;
+        font-size: 14px;
+    }
+    
+    .h6Make{
+        position: relative;
+        left: -5%;
+        line-height: 100%;
+        font-size: 10px;
+    }
+    
+    h6{
+        color: white;
+        font-weight: 100;
+        font-size: 10px;
+    }
+    
+    h5{
+        color: white;
+        font-size: 14px;
+    }
+    
+}
+
+@media (max-width: 576px){
+    .h1Credits{
+        color: white;
+        font-family: var(--myfontSERIF);
+        font-size: 70px;
+        transform: translateY(-350%);
+        position: relative;
+        bottom: 60px;
+    }
+    
+    .h6Directors{
+        color: black;
+        position: relative;
+        left: 5%;
+        font-weight: 100;
+        font-size: 8px;
+        
+    }
+    
+    .h5Directors{
+        color: black;
+        font-weight: bold;
+        position: relative;
+        left: 5%;
+        line-height: 100%;
+        font-size: 8px;
+    }
+    
+    .h5Make{
+        position: relative;
+        left: -5%;
+        line-height: 100%;
+        font-size: 8px;
+    }
+    
+    .h6Make{
+        position: relative;
+        left: -5%;
+        line-height: 100%;
+        font-size: 8px;
+    }
+    
+    h6{
+        color: white;
+        font-weight: 100;
+        font-size: 8px;
+    }
+    
+    h5{
+        color: white;
+        font-size: 8px;
+    }
+    
+}
+
+@media (max-width: 435px){
+    .h1Credits{
+        color: white;
+        font-family: var(--myfontSERIF);
+        font-size: 50px;
+        transform: translateY(-350%);
+        position: relative;
+        bottom: 40px;
+    }
+    
+    .h6Directors{
+        color: black;
+        position: relative;
+        left: 5%;
+        font-weight: 100;
+        font-size: 6px;
+        
+    }
+    
+    .h5Directors{
+        color: black;
+        font-weight: bold;
+        position: relative;
+        left: 5%;
+        line-height: 100%;
+        font-size: 8px;
+    }
+    
+    .h5Make{
+        position: relative;
+        left: -5%;
+        line-height: 100%;
+        font-size: 8px;
+    }
+    
+    .h6Make{
+        position: relative;
+        left: -5%;
+        line-height: 100%;
+        font-size: 6px;
+    }
+    
+    h6{
+        color: white;
+        font-weight: 100;
+        font-size: 6px;
+    }
+    
+    h5{
+        color: white;
+        font-size: 8px;
+    }
+    
+}
+
+/* fine crediti */
+
+
+
+/* *{
+outline: 1px solid red;
+}  */
+
+/* <div class="container-fluid containerProva bg-dark vh-100">
+<div class="row">
+<div class="col-12 vh-100 w-100 "></div>
+</div>
+</div> */
+
+
+/* DEVO FARE MENU - METTERE FOTO MAKEUP E EDITORIAL  */

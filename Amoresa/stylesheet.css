@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Amoresa';
+    src: url('Amoresa.eot');
+    src: local('Amoresa'),
+        url('Amoresa.eot?#iefix') format('embedded-opentype'),
+        url('Amoresa.woff2') format('woff2'),
+        url('Amoresa.woff') format('woff'),
+        url('Amoresa.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
