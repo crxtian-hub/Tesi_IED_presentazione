@@ -332,6 +332,7 @@
     color: white;
     line-height: 120%; 
     z-index: 5;
+    font-family: var(--myfont);
 }
 
 
