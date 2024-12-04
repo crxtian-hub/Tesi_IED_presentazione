@@ -1371,10 +1371,8 @@ background-color: #a2d2ff;
     padding: 0;
 }
 
-.movie{
-    height: 90%;
-    width: 100%;
-}
+
+
 
 .h1Movie{
     font-family: var(--myfontSERIF);
@@ -1401,6 +1399,11 @@ background-color: #a2d2ff;
         font-size: 500%;
         color: var(--myMainC);
     }
+    .movie iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9; /* Mantiene il rapporto 16:9 */
+    }
 }
 
 @media (max-width: 768px){
@@ -1413,6 +1416,11 @@ background-color: #a2d2ff;
         font-family: var(--myfontSERIF);
         color: var(--myMainC);
         font-size: 70px;
+    }
+    .movie iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9; /* Mantiene il rapporto 16:9 */
     }
     
     
@@ -1429,6 +1437,11 @@ background-color: #a2d2ff;
         color: var(--myMainC);
         font-size: 60px;
     }
+    .movie iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9; /* Mantiene il rapporto 16:9 */
+    }
 }
 
 @media (max-width: 435px){
@@ -1441,6 +1454,11 @@ background-color: #a2d2ff;
         font-family: var(--myfontSERIF);
         color: var(--myMainC);
         font-size: 50px;
+    }
+    .movie iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9; /* Mantiene il rapporto 16:9 */
     }
 }
 /* fine movie */
