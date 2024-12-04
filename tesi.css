@@ -140,7 +140,7 @@
     
     .hamburger-line {
         width: 100%;
-        background: black;
+        background: #665471;
         height: 2px;
         display: block;
         border-radius: 6px;
@@ -441,7 +441,7 @@
         line-height: 120%; 
         z-index: 5;
         position: relative;
-        bottom: 50px;
+        bottom: 10px;
     }
     
     .the{
@@ -489,6 +489,8 @@
         width: 33%;
         padding-top: 10px;
         z-index: 5;
+        position: relative;
+        right: 10px;
     }
     
     
@@ -960,7 +962,7 @@ width: 75%;
     }
     .imgMoodboard:hover{
         width: 100%; /* Larghezza dinamica in base alla colonna */
-        height: 140%;
+        height: 100%;
         transition: 1s;
         z-index: 1;
     }
@@ -1731,7 +1733,7 @@ h5{
         position: relative;
         left: 5%;
         font-weight: 100;
-        font-size: 6px;
+        font-size: 5.5px;
         
     }
     
@@ -1748,7 +1750,7 @@ h5{
         position: relative;
         left: -5%;
         line-height: 100%;
-        font-size: 8px;
+        font-size: 7.5px;
     }
     
     .h6Make{
