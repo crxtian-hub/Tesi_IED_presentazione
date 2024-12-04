@@ -150,11 +150,15 @@
         &.first,
         &.third {
             width: 50%;
+            bottom: 1px;
         }
         
         &.third {
             margin-left: 50%;
             transform-origin: left;
+            top: .1px;
+            width: 75%;
+            right: 4px;
         }
     }
 }
