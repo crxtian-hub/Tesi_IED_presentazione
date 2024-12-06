@@ -357,7 +357,7 @@
         font-family: var(--myfont);
         font-size: 220px;
         position: relative;
-        top: 170px;
+        top: 135px;
         width: 80%;
         z-index: 1200;
         margin: 0;
@@ -885,7 +885,7 @@ width: 75%;
         text-align: center;
         margin-top: 10px;
         position: relative;
-        bottom: 150px;
+        bottom: 120px;
     }
     
     .textContainer {
