@@ -1082,7 +1082,7 @@ width: 75%;
     transition: 1s;
 }
 
-@media (max-width: 1920px) {
+@media (min-width: 1920px) {
     /* Stili per schermi di laptop */
     .h1moodBoard{
         font-family: var(--myfontSERIF);
@@ -1598,7 +1598,7 @@ width: 75%;
     object-fit: cover;
 }
 
-@media (max-width: 1920px) {
+@media (min-width: 1920px) {
     /* Stili per schermi di laptop */
     .h1Backstage{
         font-family: var(--myfontSERIF);
@@ -1700,7 +1700,7 @@ width: 225.39px;
     height: 70%;
 }
 
-@media (max-width: 1920px) {
+@media (min-width: 1920px) {
     /* Stili per schermi di laptop */
     .h1Editorial{
         font-family: var(--myfontSERIF);
@@ -1778,7 +1778,7 @@ width: 225.39px;
     overflow: hidden;
 }
 
-@media (max-width: 1920px){
+@media (min-width: 1920px){
     .h1Trailer{
         font-family: var(--myfontSERIF);
         font-size: 140px;
@@ -1984,7 +1984,7 @@ h5{
     left: -5%;
 }
 
-@media (max-width: 1920px){
+@media (min-width: 1920px){
     .h1Credits{
         color: white;
         font-family: var(--myfontSERIF);
