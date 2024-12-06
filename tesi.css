@@ -355,9 +355,9 @@
     
     .nomePROGETTO{
         font-family: var(--myfont);
-        font-size: 250px;
+        font-size: 220px;
         position: relative;
-        top: 20px;
+        top: 170px;
         width: 80%;
         z-index: 1200;
         margin: 0;
@@ -379,17 +379,19 @@
     .curtains{
         position: relative;
         bottom: 70px;
-        left: 180px;
+        left: 150px;
     }
     
     .h6Progetto{
         font-weight: lighter;
-        margin-bottom: 140px;
+        margin-bottom: 90px;
         font-size: 250%;
         color: white;
         line-height: 120%; 
         z-index: 5;
         font-family: var(--myfont);
+        position: relative;
+        top: 100px;
     }
     
 }
@@ -648,7 +650,7 @@ width: 75%;
         color: var(--myMainC);
         font-size: 140px;
         position: relative;
-        top: 400px;
+        top: 100px;
     }
     .paragrafoCONCEPT{
         color: black;
@@ -883,7 +885,7 @@ width: 75%;
         text-align: center;
         margin-top: 10px;
         position: relative;
-        bottom: 700px;
+        bottom: 150px;
     }
     
     .textContainer {
@@ -1417,7 +1419,6 @@ width: 75%;
     border-bottom: 2px solid black;
     height: 30%;
     position: relative;
-
 }
 
 
@@ -2068,7 +2069,7 @@ h5{
         left: -5%;
         line-height: 130%;
         font-size: 25px;
-        top: 400px;
+        top: 100px;
     }
     
     .h6Make{
@@ -2076,7 +2077,7 @@ h5{
         left: -5%;
         line-height: 130%;
         font-size: 20px;
-        top: 400px;
+        top: 100px;
     }
     
     h6{
