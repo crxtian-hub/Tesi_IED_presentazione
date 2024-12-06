@@ -2344,6 +2344,7 @@ h5{
         left: -5%;
         line-height: 100%;
         font-size: 7.5px;
+        top: 100px;
     }
     
     .h6Make{
@@ -2351,6 +2352,7 @@ h5{
         left: -5%;
         line-height: 100%;
         font-size: 6px;
+        top: 100px;
     }
     
     h6{
