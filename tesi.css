@@ -200,10 +200,6 @@
     }
     
     
-    .clickable-div:hover{
-        
-    }
-    
     .social{
         text-decoration: none;
         transition: .3;
@@ -356,6 +352,46 @@
         position:relative;
         left: 50px;
     }
+    
+    .nomePROGETTO{
+        font-family: var(--myfont);
+        font-size: 250px;
+        position: relative;
+        top: 20px;
+        width: 80%;
+        z-index: 1200;
+        margin: 0;
+        color: white;
+        transform: rotate(-14deg);
+        
+    }
+    .through{
+        font-size: 150%;
+    }
+    
+    .the{
+        font-size: 50%;
+        position: relative;
+        bottom: 230px;
+        left: 250px;
+    }
+    
+    .curtains{
+        position: relative;
+        bottom: 70px;
+        left: 180px;
+    }
+    
+    .h6Progetto{
+        font-weight: lighter;
+        margin-bottom: 140px;
+        font-size: 250%;
+        color: white;
+        line-height: 120%; 
+        z-index: 5;
+        font-family: var(--myfont);
+    }
+    
 }
 
 @media (max-width: 1024px) {
@@ -610,9 +646,18 @@ width: 75%;
     .h1CONCEPT{
         font-family: var(--myfontSERIF);
         color: var(--myMainC);
-        font-size: 500%;
+        font-size: 140px;
         position: relative;
-        top: 130px;
+        top: 400px;
+    }
+    .paragrafoCONCEPT{
+        color: black;
+        font-weight: 100;
+        font-size: 160%;
+        width: 85%;
+        text-align: justify;
+        column-count: 2;
+        column-gap: 70px;
     }
 }
 
@@ -641,12 +686,12 @@ width: 75%;
         color: var(--myMainC);
         font-size: 60px;
         position: relative;
-        top: 0px;
+        top: 250px;
     }
     .paragrafoCONCEPT{
         color: black;
         font-weight: 100;
-        font-size: 55%;
+        font-size: 80%;
         width: 100%;
         word-spacing:0.1%;
         text-align-last: left;
@@ -712,7 +757,8 @@ width: 75%;
         color: var(--myMainC);
         font-size: 40px;
         position: relative;
-        top: 100px;
+        top: 60px;
+        right: 2px;
     }
     
     .paragrafoCONCEPT{
@@ -837,9 +883,27 @@ width: 75%;
         text-align: center;
         margin-top: 10px;
         position: relative;
-        bottom: 150px;
+        bottom: 700px;
     }
     
+    .textContainer {
+        font-size: 84%; /* Proporzionato al contenitore */
+        text-align: start;
+        height: 100%;
+        padding: 15px;
+        opacity: 0;
+        transition: 0.6s ease-in-out;
+        font-weight: 100;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(80%);
+        text-align: justify;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -1018,7 +1082,18 @@ width: 75%;
     transition: 1s;
 }
 
-
+@media (max-width: 1920px) {
+    /* Stili per schermi di laptop */
+    .h1moodBoard{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 140px;
+        width: 100vh;
+        z-index: 2;
+        padding-left: 10px;
+        text-align: end;
+    }
+};
 
 @media (max-width: 1024px) {
     /* Stili per schermi di laptop */
@@ -1035,7 +1110,7 @@ width: 75%;
 
 @media (max-width: 844px){
     .h1Moodboard{
-        font-size: 2px;
+        font-size: 60px;
         position: relative;
         left: 400px;
     }
@@ -1179,8 +1254,39 @@ width: 75%;
 
 @media (min-width: 1920px) {
     /* Regole CSS per schermi grandi */
+    
+    .h1Styling{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 140px;
+    }
+    .contenitoreParagrafoStyling{
+        width: 100%;
+        height: 300%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 500px;
+    }
+    
+    .colStyling{
+        height: 8vh;
+    }
     .liBrands{
-        height: 7%;
+        transform: translateY(-280%);
+        white-space: nowrap;
+        text-transform: uppercase;
+        font-weight: 100;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-x: hidden;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+        height: 60%;
+        font-size: 25px;
     }
     
 }
@@ -1230,7 +1336,7 @@ width: 75%;
         font-size:70px;
     }
     .colStyling{
-        height: 20vh;
+        height: 10vh;
     }
     
 }
@@ -1288,6 +1394,16 @@ width: 75%;
         height: 10%;
         font-size: 10px;
     }
+    .contenitoreParagrafoStyling{
+        font-weight: 100;
+        width: 100%;
+        height: 300%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 100px;
+    }
     
 }
 
@@ -1299,7 +1415,48 @@ width: 75%;
         font-size:50px;
         padding-right: 10px;
     }
-    
+    .colStyling{
+        height: 15vh;
+        bottom: 20px;
+    }
+    .liBrands{
+        transform: translateY(-280%);
+        white-space: nowrap;
+        text-transform: uppercase;
+        font-weight: 100;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-x: hidden;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+        height: 15%;
+        font-size: 10px;
+        overflow-y: hidden;
+    }
+    .contenitoreParagrafoStyling{
+        font-weight: 100;
+        width: 100%;
+        height: 300%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 150px;
+    }
+    .rightToLeft{
+        position: relative;
+        display: flex;
+        font-size: 200%;
+        color: black;
+        height: 100%;
+        width: 100%;
+        animation-name: infiniteScroll;
+        animation-duration: 40s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
 }
 
 /* fine styling */
@@ -1343,7 +1500,14 @@ width: 75%;
         transition: 2s;
         object-fit: contain;
     }
-    
+    .h1MakeUp{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 140px;
+        padding-left: 10px;
+        position: relative;
+        top: 20px;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -1434,6 +1598,15 @@ width: 75%;
     object-fit: cover;
 }
 
+@media (max-width: 1920px) {
+    /* Stili per schermi di laptop */
+    .h1Backstage{
+        font-family: var(--myfontSERIF);
+        color: var(--myMainC);
+        font-size: 140px;
+    }
+}
+
 @media (max-width: 1024px) {
     /* Stili per schermi di laptop */
     .h1Backstage{
@@ -1498,9 +1671,9 @@ background-color: #a2d2ff;
     height: 100%;
 }
 
-.imgEditorial{
-    width: 225.39px;
-}
+/* .imgEditorial{
+width: 225.39px;
+} */
 
 .swiper{
     width: 100%;
@@ -1525,6 +1698,15 @@ background-color: #a2d2ff;
 .swiperContainer{
     width: 100%;
     height: 70%;
+}
+
+@media (max-width: 1920px) {
+    /* Stili per schermi di laptop */
+    .h1Editorial{
+        font-family: var(--myfontSERIF);
+        font-size: 140px;
+        color: var(--myMainC);
+    }
 }
 
 @media (max-width: 1024px) {
@@ -1594,6 +1776,20 @@ background-color: #a2d2ff;
 .colMovie{
     padding: 0;
     overflow: hidden;
+}
+
+@media (max-width: 1920px){
+    .h1Trailer{
+        font-family: var(--myfontSERIF);
+        font-size: 140px;
+        color: var(--myMainC);
+        width: 100%;
+    }
+    .h1Movie{
+        font-family: var(--myfontSERIF);
+        font-size: 140px;
+        color: var(--myMainC);
+    }
 }
 
 @media (max-width: 1024px) {
@@ -1787,6 +1983,61 @@ h5{
     position: relative;
     left: -5%;
 }
+
+@media (max-width: 1920px){
+    .h1Credits{
+        color: white;
+        font-family: var(--myfontSERIF);
+        font-size: 140px;
+        transform: translateY(-350%);
+        position: relative;
+        bottom: 60px;
+    }
+    
+    .h6Directors{
+        color: black;
+        position: relative;
+        left: 5%;
+        font-weight: 100;
+        font-size: 20px;
+    }
+    
+    .h5Directors{
+        color: black;
+        font-weight: bold;
+        position: relative;
+        left: 5%;
+        line-height: 130%;
+    }
+    
+    .h5Make{
+        position: relative;
+        left: -5%;
+        line-height: 130%;
+        font-size: 25px;
+        top: 400px;
+    }
+    
+    .h6Make{
+        position: relative;
+        left: -5%;
+        line-height: 130%;
+        font-size: 20px;
+        top: 400px;
+    }
+    
+    h6{
+        color: white;
+        font-weight: 100;
+        font-size: 20px;
+    }
+    
+    h5{
+        color: white;
+        font-size: 25px;
+    }
+}
+
 
 @media (max-width: 1024px) {
     /* Stili per schermi di laptop */
