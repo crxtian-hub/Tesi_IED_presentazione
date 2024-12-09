@@ -711,7 +711,7 @@ width: 75%;
         font-family: var(--myfontSERIF);
         color: var(--myMainC);
         font-size: 70px;
-        top: 150px;
+        top: 0px;
     }
     
     .contenitorePARAGRAFOCONCEPT{
@@ -981,7 +981,7 @@ width: 75%;
         left: 0;
         width: 100%;
         height: 120%;
-        font-size: 60%;
+        font-size: 40%;
         display: flex;
         opacity: 0;
         transition: 0.6s ease-in-out;
@@ -993,10 +993,9 @@ width: 75%;
         color: var(--myMainC);
         font-size: 200%;
         text-align: center;
-        margin-bottom: 20px;
         position: absolute;
         width: 100%;
-        bottom: 20px;
+        bottom: -10px;
     }
     
     .wrapperCardDoll {
@@ -1347,11 +1346,11 @@ width: 75%;
         color: var(--myMainC);
         font-size:70px;
     }
-
+    
     .colStyling{
         height: 20vh;
     }
-
+    
     .liBrands{
         transform: translateY(-280%);
         white-space: nowrap;
@@ -1378,7 +1377,7 @@ width: 75%;
         position: relative;
         top: 150px;
     }
-
+    
     .rightToLeft{
         position: relative;
         display: flex;
@@ -1812,7 +1811,9 @@ width: 225.39px;
     font-size: 600%;
     color: var(--myMainC);
     width: 100%;
-    padding-left: 10px;
+    padding-right: 20px;
+    position: relative;
+    top: 50px;
 }
 
 .colTrailer{
@@ -1838,6 +1839,8 @@ width: 225.39px;
         font-size: 140px;
         color: var(--myMainC);
         width: 100%;
+        position: relative;
+        top: 120px;
     }
     .h1Movie{
         font-family: var(--myfontSERIF);
@@ -1853,6 +1856,8 @@ width: 225.39px;
         font-size: 500%;
         color: var(--myMainC);
         width: 100%;
+        position: relative;
+        top: 0;
     }
     .h1Movie{
         font-family: var(--myfontSERIF);
@@ -1915,6 +1920,8 @@ width: 225.39px;
         font-family: var(--myfontSERIF);
         color: var(--myMainC);
         font-size: 50px;
+        position: relative;
+        top: 90px;
     }
     .movie iframe {
         width: 100%;
@@ -1963,10 +1970,14 @@ width: 225.39px;
 h6{
     color: white;
     font-weight: 100;
+    position: relative;
+    bottom: 40px;
 }
 
 h5{
     color: white;
+    position: relative;
+    bottom: 40px;
 }
 
 .h6Directors{
@@ -2084,11 +2095,15 @@ h5{
         color: white;
         font-weight: 100;
         font-size: 20px;
+        position: relative;
+        bottom: 80px;
     }
     
     h5{
         color: white;
         font-size: 25px;
+        position: relative;
+        bottom: 80px;
     }
 }
 
@@ -2303,6 +2318,7 @@ h5{
         color: white;
         font-weight: 100;
         font-size: 8px;
+
     }
     
     h5{
