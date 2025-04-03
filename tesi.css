@@ -481,13 +481,6 @@ a{
     text-decoration: underline;
 }
 .xClose:hover{
-    position: absolute;
-    right: 30px;
-    top: 30px;
-    background: transparent;
-    color: #161616;
-    border: 0;
-    font-size: 1.5vw;
     text-decoration: none;
 }
 
@@ -846,7 +839,7 @@ a{
     }
     .newConceptParagraph{
         column-count: 1;
-        font-size: 4vw;
+        font-size: 3.5vw;
     }
     .bottomText{
         font-size: 4vw;
