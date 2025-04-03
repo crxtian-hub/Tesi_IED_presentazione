@@ -95,7 +95,7 @@ function preloading() {
         pageContent.classList.remove("d-none");
         loading.classList.add("d-none");
         
-    }, 4000); // 4 secondi
+    }, 1); // 4 secondi
 }
 
 
@@ -285,36 +285,6 @@ menuOverlay();
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    const menuTrigger = document.getElementById("menuTrigger");
-    const overlay = document.querySelector(".toTheTop");
-    
-    menuTrigger.addEventListener("click", function (e) {
-        e.preventDefault();
-        
-        // 1. L'overlay sale coprendo tutto
-        gsap.to(overlay, {
-            top: 0, // Sale
-            duration: 0.5,
-            ease:"none",
-            onComplete: function () {
-                // 2. Riporta la pagina in alto dopo che è salito
-                window.scrollTo({ top: 0, behavior: "smooth" });
-                
-                // 3. Dopo 1 secondo l'overlay riscende automaticamente
-                gsap.to(overlay, {
-                    top: "100vh", // Scende
-                    duration: 1,
-                    delay: 1, // Aspetta 1 secondo prima di scendere
-                    ease: "power4.inOut",
-                });
-            }
-        });
-    });
-});
-
-
-
 
 function textRolling (){
     let elements = document.querySelectorAll('.rolling-text');
@@ -499,102 +469,122 @@ engineMatterJS();
 
 
 
-
-document.addEventListener("DOMContentLoaded", () => {
-    const menuLinks = document.querySelectorAll('.menu-item a');  
-    const sections = document.querySelectorAll('section');        
-
-    const observerOptions = {
-        rootMargin: "0px 0px -20% 0px",
-        threshold: 0.4
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            const id = entry.target.getAttribute('id');
-            const correspondingLink = document.querySelector(`a[href="#${id}"]`);
-
-            if (entry.isIntersecting) {
-                correspondingLink?.classList.add('active');
+function textMenuActive(){
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuLinks = document.querySelectorAll('.menu-item a');  
+        const sections = document.querySelectorAll('section');        
+        
+        const observerOptions = {
+            rootMargin: "0px 0px -20% 0px",
+            threshold: 0.4
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                const id = entry.target.getAttribute('id');
+                const correspondingLink = document.querySelector(`a[href="#${id}"]`);
+                
+                if (entry.isIntersecting) {
+                    correspondingLink?.classList.add('active');
+                } else {
+                    correspondingLink?.classList.remove('active');
+                }
+            });
+        }, observerOptions);
+        
+        sections.forEach((section) => observer.observe(section));
+        
+        // ✅ Controllo manuale per la sezione "home"
+        function checkHomeSection() {
+            const firstSection = document.querySelector("#home");
+            const firstLink = document.querySelector(`a[href="#home"]`);
+            
+            if (window.scrollY < 50) {  // Se l'utente è vicino all'inizio della pagina
+                firstLink?.classList.add('active');
             } else {
-                correspondingLink?.classList.remove('active');
+                firstLink?.classList.remove('active');
             }
-        });
-    }, observerOptions);
-
-    sections.forEach((section) => observer.observe(section));
-
-    // ✅ Controllo manuale per la sezione "home"
-    function checkHomeSection() {
-        const firstSection = document.querySelector("#home");
-        const firstLink = document.querySelector(`a[href="#home"]`);
-
-        if (window.scrollY < 50) {  // Se l'utente è vicino all'inizio della pagina
-            firstLink?.classList.add('active');
-        } else {
-            firstLink?.classList.remove('active');
         }
-    }
-
-    // Controllo all'avvio e su scroll
-    checkHomeSection();
-    window.addEventListener("scroll", checkHomeSection);
-});
-
-
-
+        
+        // Controllo all'avvio e su scroll
+        checkHomeSection();
+        window.addEventListener("scroll", checkHomeSection);
+    });
+}
+textMenuActive();
 
 
-function shootsImageInContainer (){
+function shootsImageInContainer() {
     document.addEventListener("DOMContentLoaded", function () {
         const imgShoots = document.querySelectorAll(".imgShoots");
         const toSeeContainer = document.querySelector(".toSeeContainer");
-        
+        const hoverText = toSeeContainer.querySelector("p"); // Seleziona il <p>
+
         imgShoots.forEach(img => {
             img.addEventListener("mouseover", function () {
                 // Cambia l'immagine nello "schermo grande"
                 toSeeContainer.style.backgroundImage = `url(${img.src})`;
                 toSeeContainer.style.backgroundSize = "contain";
-                toSeeContainer.style.backgroundPosition = "center";
+                toSeeContainer.style.backgroundPosition = "left";
+                
+                // Nasconde il testo
+                if (hoverText) {
+                    hoverText.style.display = "none";
+                }
             });
-            
+
             img.addEventListener("mouseleave", function () {
                 // Rimuove l'immagine quando il mouse esce
                 toSeeContainer.style.backgroundImage = "";
+                
+                // Riporta il testo visibile
             });
         });
     });
 }
-shootsImageInContainer();
+
+shootsImageInContainer(); // Chiama la funzione
 
 
-
-
-// gsap.registerPlugin(ScrollToPlugin);
-
-// document.getElementById("menuTrigger").addEventListener("click", function (e) {
-//     e.preventDefault();
+function dollsParagraphStory(){
+document.addEventListener("DOMContentLoaded", () => {
+    // Seleziona tutti i bottoni
+    const buttons = document.querySelectorAll('.clickMeDolls');
     
-//     gsap.timeline()
-//     .set(".overlay", { visibility: "visible" }) // Rende visibile l'overlay
-//     .to(".overlay", {
-//         height: "100vh",
-//         duration: 1,
-//         ease: "power4.out",
-//     })
-//     .to(window, {
-//         scrollTo: { y: 0, autoKill: false },
-//         duration: 0.5,
-//         ease: "power2.inOut"
-//     }, "-=0.5") // Fa lo scroll verso l'alto mentre l'animazione avanza
-//     .to(".overlay", {
-//         opacity: 0,
-//         duration: 0.5,
-//         onComplete: () => {
-//             gsap.set(".overlay", { visibility: "hidden", height: "0", opacity: 1 });
-//         }
-//     });
-// });
+    // Aggiungi l'evento click a ciascun bottone
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Verifica quale classe del bottone è presente
+            let dollClass = "";
+            if (button.classList.contains("heraButton")) {
+                dollClass = "hera";
+            } else if (button.classList.contains("kianaButton")) {
+                dollClass = "kiana";
+            } else if (button.classList.contains("amaniButton")) {
+                dollClass = "amani";
+            }
+            
+            // Seleziona il container corrispondente
+            const container = document.querySelector(`.containerDollsParagraph.${dollClass}Paragraph`);
+            
+            // Mostra il container con la transizione
+            if (container) {
+                container.classList.add('show');
+            }
+        });
+    });
+    
+    // Chiudi i contenitori quando clicchi sul tasto Close
+    const closeButtons = document.querySelectorAll('.xClose');
+    closeButtons.forEach(closeButton => {
+        closeButton.addEventListener('click', () => {
+            const container = closeButton.closest('.containerDollsParagraph');
+            container.classList.remove('show');
+        });
+    });
+});
+}
+dollsParagraphStory();
 
 
 

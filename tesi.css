@@ -182,6 +182,8 @@ nav .closeButton{
 }
 
 
+
+
 .bottomText{
     position: absolute;
     bottom: 40px;
@@ -384,13 +386,13 @@ a{
 .newConceptParagraph{
     padding-left: 30px;
     font-size: 2vw;
-    line-height: 100%;
-    width: 80%;
+    line-height: 120%;
+    width: 85%;
     position: absolute;
     top: 106px;
     font-weight: 200;
     column-count: 2;
-    column-gap: 30px;
+    column-gap: 60px;
     text-align: justify;
     hyphens: auto;
 }
@@ -405,57 +407,89 @@ a{
     height: 100vh;
     width: 100%;
     display: flex;
-    gap: 30px;
+    gap: 15px;
 }
 
 .imgDoll{
     position: relative;
     left: 30px;
     top: 98px;
-    height: 522px;
-    width: 352px;
+    height: 400px;
+    width: 250px;
     background-size: contain; 
     background-repeat: no-repeat;
     background-position: center; 
-    cursor: pointer;
-    transition: filter 0.3s ease-in-out; 
+}
+
+.containerDollsParagraph{
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    z-index: 10000;
+    transition: left 0.5s ease-in-out; /* Animazione per il movimento */
+}
+.containerDollsParagraph.show {
+    left: 0; 
+}
+
+.clickMeDolls{
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    text-decoration: underline;
+    position: absolute;
+    bottom: -15px;
+    font-weight: 200;
+}
+.clickMeDolls:hover{
+    text-decoration: none;
 }
 
 .dollsParagraph{
+    font-size: 2vw;
+    left: 30px;
+    color: #161616;
     position: absolute;
-    top: 20%;
-    width: 90%;
-    left: 5%;
-    line-height: 110%;
+    top: 30px;
+    line-height: 120%;
+    width: 70%;
     font-weight: 200;
-    text-align: justify;
-    color: white;
-    transition: top 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.3s ease-in-out;
-    z-index: 1000;
-    opacity: 0;
-    text-wrap: balance;
-    word-spacing: -1px;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
 }
 
-
-.imgDoll::before {
-    content: "";
+.dollName{
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0); 
-    transition: background 0.3s ease-in-out;
-    z-index: 1;
+    color: #161616;
+    bottom: 30px;
+    right: 30px;
+    font-size: 3vw;
+    text-transform: uppercase;
+    font-family: var(--myfontSERIF);
 }
 
-.imgDoll:hover::before {
-    background: rgba(0, 0, 0, 0.816);
+.xClose{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background: transparent;
+    color: #161616;
+    border: 0;
+    font-size: 1.5vw;
+    text-decoration: underline;
 }
+.xClose:hover{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background: transparent;
+    color: #161616;
+    border: 0;
+    font-size: 1.5vw;
+    text-decoration: none;
+}
+
 .hera{
     background-image: url(./Media/HERA1.jpg);
 }
@@ -466,11 +500,6 @@ a{
     background-image: url(./Media/AMANI2.jpg);
 }
 
-.imgDoll:hover .dollsParagraph {
-    opacity: 1;
-    visibility: visible;
-    top: 17px;
-}
 
 /* fine doll cards */
 
@@ -491,6 +520,10 @@ a{
     width: 250px;
     height: 250px;
     object-fit: cover;
+}
+
+.titleonWhite{
+    mix-blend-mode: difference;
 }
 
 
@@ -571,9 +604,10 @@ a{
 .toSeeContainer{
     height: 510px;
     width: 600px;
-    border: 3px solid #3E3E3E;
+    /* border: 3px solid var(--myBackgroundColor); */
+    
     position: absolute;
-    right: 30px;
+    left: 570px;
     top: 102px;
     background-size: contain;
     background-position: center;
@@ -588,6 +622,7 @@ a{
     z-index: -1;
     text-transform: uppercase;
     font-weight: 200;
+    font-size: .8vw;
 }
 
 
@@ -655,7 +690,7 @@ a{
 
 .role{
     text-transform: uppercase;
-    font-weight: 1000;
+    font-weight: 500;
     font-size: 1vw;
     word-spacing: -1px;
     line-height: 120%;
@@ -665,7 +700,7 @@ a{
 .names{
     text-transform: uppercase;
     font-family: var(--myfontSERIF);
-    font-weight:800 ;
+    font-weight: 700 ;
     line-height: 130%;
     font-size: 2vw;
     
@@ -693,9 +728,68 @@ a{
 
 
 
+
+.blackUnderline:hover{
+    transform-origin: left;
+    position: relative;
+}
+
+.blackUnderline::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom:5px;
+    left: 0;
+    background-color: #3E3E3E;
+    transition: transform .25s ease-out;
+    transform-origin: bottom right;
+}
+
+.blackUnderline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+/* fine credits */
+
+.noContentMessage{
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(151, 42, 42);
+    position: relative;
+    display: none;
+}
+
+
+.textNoContent{
+    font-size: 4vw;
+    font-family: var(--myfontSERIF);
+    text-transform: uppercase;
+    font-weight: 500;
+    color: white;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+}
+
+.textNoContent span{
+    color: var(--myBackgroundColor);
+    font-family: var(--myfont);
+    text-transform: none;
+}
+
 @media screen and (max-width: 500px) and (orientation: portrait) {
+    html,body{
+        overflow: visible;
+    }
+    .others{
+        left: 30px;
+        text-align: left;
+        top: 300px;
+    }
     .development{
-        bottom: 350px;
+        bottom: 180px;
     }
     .production{
         top: 240px;
@@ -729,25 +823,22 @@ a{
         width: 110px;
         height: 110px;
     }
-    .dollsParagraph{
-        opacity: 1;
-        transform: translate(173px);
-        top: 0;
-        text-align: justify;
-        color: #3E3E3E;
-        font-size: 1.5vw;
-        transition: none;
+    .xClose{
+        font-size: 3vw;
     }
-    .imgDoll{
-        height: 150px;
-        width: 150px;
-        background-size: cover;
-        background-position: 0 0;
-        pointer-events: none;
+    .dollName{
+        font-size: 5vw;
+    }
+    .dollsParagraph{
+        font-size: 4.5vw;
     }
     .dollsContainer{
-        gap: 30px;
         flex-direction: column;
+        gap: 30px;
+    }
+    .imgDoll{
+        height: 200px;
+        width: 120px;
     }
     .newConceptParagraph{
         column-count: 1;
@@ -833,66 +924,9 @@ a{
     }
     
     .development{
-        position: absolute;
-        left: 30px;
-        text-align: left;
-        bottom: 250px;
+        bottom: 100px;
     }
     
-}
-
-
-
-
-
-.blackUnderline:hover{
-    transform-origin: left;
-    position: relative;
-}
-
-.blackUnderline::after{
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom:5px;
-    left: 0;
-    background-color: #3E3E3E;
-    transition: transform .25s ease-out;
-    transform-origin: bottom right;
-}
-
-.blackUnderline:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
-/* fine credits */
-
-.noContentMessage{
-    height: 100vh;
-    width: 100%;
-    background-color: rgb(151, 42, 42);
-    position: relative;
-    display: none;
-}
-
-
-.textNoContent{
-    font-size: 4vw;
-    font-family: var(--myfontSERIF);
-    text-transform: uppercase;
-    font-weight: 500;
-    color: white;
-    position: absolute;
-    left: 30px;
-    top: 30px;
-}
-
-.textNoContent span{
-    color: var(--myBackgroundColor);
-    font-family: var(--myfont);
-    text-transform: none;
 }
 
 
