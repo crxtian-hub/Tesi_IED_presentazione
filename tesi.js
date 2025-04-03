@@ -1,27 +1,616 @@
-let loading = document.querySelector("#loading")
-let pageContent = document.querySelector("#pageContent")
+function createTriangleFavicon() {
+    let canvas = document.createElement("canvas");
+    canvas.width = 32;
+    canvas.height = 32;
+    let ctx = canvas.getContext("2d");
+    
+    // Imposta colore di sfondo (opzionale)
+    ctx.fillStyle = "#cdb4db"; // Cambia con il colore che vuoi
+    
+    // Disegna il triangolo equilatero invertito
+    ctx.beginPath();
+    ctx.moveTo(16, 32); // Punto centrale in basso
+    ctx.lineTo(0, 0);   // Punto in alto a sinistra
+    ctx.lineTo(32, 0);  // Punto in alto a destra
+    ctx.closePath();
+    ctx.fill();
+    
+    // Converte in immagine e la imposta come favicon
+    let url = canvas.toDataURL("image/png");
+    let link = document.querySelector("link[rel='icon']") || document.createElement("link");
+    link.rel = "icon";
+    link.href = url;
+    document.head.appendChild(link);
+}
 
-setTimeout(() => {
-    pageContent.classList.remove("d-none")
-    loading.classList.add("d-none")
+createTriangleFavicon();
+
+
+function preloading() {
+    let loading = document.querySelector("#loading");
+    let pageContent = document.querySelector("#pageContent");
+    let loadingText = document.querySelector(".loadingText");
     
-    var swiper = new Swiper(".mySwiper", {
-        effect: "coverflow",
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: "auto",
-        coverflowEffect: {
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
+    gsap.fromTo(
+        ".loadingText div, .loadingText", // Selettori degli elementi da animare
+        {
+            opacity: 0,
+            y: -60,
+            stagger: 0.9 // Proprietà iniziali
         },
-        pagination: {
-            el: ".swiper-pagination",
-        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 1, // Proprietà finali
+            ease: "power2.out"
+        }
+    );
+    
+    
+    gsap.fromTo(".loadingText span",{
+        y:80,
+        opacity:0,
+        stagger: .4,
+        delay: 1.2,
+    },{
+        y:80,
+        opacity:1,
+        stagger: .4,
+        delay: 1.2,
+    })
+    
+    gsap.to(".colLoading",{
+        delay: 1.8,
+        duration: 2, //.5
+        y:-800,
+        ease: "power4.inOut"
+    })
+    
+    gsap.from(".square", {
+        delay: 3.5,
+        duration: 1.5,
+        ease: "power4.inOut",
+        scaleX: 0,  
+        transformOrigin: "center", 
+        height: "100vh", 
+    })
+    
+    gsap.from(".projectTitle, .bottomText",{
+        delay: 3.2,
+        duration:1.5,
+        ease: "power4.inOut",
+        y: 40,
+        opacity:0,
+        stagger:0.2,
+    })
+    
+    gsap.from("nav .title, nav .menu",{
+        delay: 3.7,
+        duration:1.5,
+        ease: "power4.inOut",
+        opacity:0,  
+    })
+    
+    setTimeout(() => {
+        pageContent.classList.remove("d-none");
+        loading.classList.add("d-none");
+        
+    }, 4000); // 4 secondi
+}
+
+
+window.addEventListener("load", preloading);
+
+
+function squareImage() {
+    document.addEventListener("DOMContentLoaded", function () {
+        let square = document.querySelector(".square");
+        
+        // Array con i percorsi delle immagini (cartella "Editorial")
+        let images = [
+            "./Editorial/editorial1.jpg",
+            "./Editorial/editorial3.jpg",
+            "./makeup/makeup1.jpg",
+            "./Editorial/editorial4.jpg",
+            "./Editorial/editorial6.jpg",
+            "./Editorial/editorial2.jpg",
+            "./makeup/makeup2.jpg",
+            "./Editorial/editorial7.jpg",
+            "./Backstage/backstage26.jpg",
+            "./Editorial/editorial8.jpg",
+            "./Editorial/editorial9.jpg",
+            "./makeup/makeup3.jpg",
+            "./makeup/makeup6.jpg",
+            "./Backstage/backstage1.jpg",
+            "./Backstage/backstage19.jpg",
+            "./Backstage/backstage18.jpg",
+            "./Media/fotoBackground1.jpg",
+            "./Media/ok84.jpg",
+            "./Backstage/backstage14.jpg",
+            "./Backstage/backstage4.jpg",
+        ];
+        
+        let index = 0;
+        let autoChangeInterval; // Variabile per memorizzare l'intervallo automatico
+        let mouseMoveTimeout; // Variabile per gestire il timeout del movimento del mouse
+        
+        // Funzione che cambia l'immagine
+        function changeBackground() {
+            square.style.backgroundImage = `url(${images[index]})`;
+            index = (index + 1) % images.length; // Loop infinito tra le immagini
+        }
+        
+        // Funzione che cambia l'immagine velocemente quando il cursore si muove
+        function changeBackgroundOnMove(e) {
+            // Calcola la posizione orizzontale del cursore come percentuale della larghezza della finestra
+            let cursorX = e.clientX;
+            let windowWidth = window.innerWidth;
+            let percentage = cursorX / windowWidth;
+            
+            // Usa la percentuale per determinare quale immagine mostrare
+            index = Math.floor(percentage * images.length);
+            square.style.backgroundImage = `url(${images[index]})`;
+            
+            // Resetta il timeout che riavvia l'auto-cambio delle immagini
+            clearTimeout(mouseMoveTimeout);
+            mouseMoveTimeout = setTimeout(startAutoChange, 1000); // Dopo 1 secondo senza movimento, riavvia l'auto cambio
+        }
+        
+        // Avvia il cambio automatico delle immagini ogni 2 secondi
+        function startAutoChange() {
+            clearInterval(autoChangeInterval); // Ferma l'intervallo precedente
+            autoChangeInterval = setInterval(changeBackground, 2000); // Cambia ogni 2 secondi
+        }
+        
+        // Inizia con l'auto-cambio delle immagini
+        startAutoChange();
+        
+        // Aggiungi l'evento mousemove per cambiare rapidamente l'immagine durante il movimento del cursore
+        window.addEventListener("mousemove", changeBackgroundOnMove);
     });
+}
+
+squareImage();
+
+
+
+function menuOverlay(){
     
-    AOS.init(); //SEMPRE INIZIALIZZARE NELLA FUNZIONE DI TIMEOUT TUTTE LE ANIMAZIONI!!!!!!!!
-}, 4000);
+    document.addEventListener("DOMContentLoaded", function () {
+        const overlay = document.querySelector(".overlay");
+        const menuButton = document.querySelector(".menuButton");
+        const closeButton = document.querySelector(".closeButton");
+        const menuItems = document.querySelectorAll(".menu-item");
+        const social = document.querySelectorAll(".social");
+        const meet = document.querySelectorAll(".meet");
+        const names = document.querySelectorAll(".name");
+        
+        function openMenu() {
+            // Ripristina lo stato iniziale degli elementi
+            gsap.set([menuItems, social, meet, names], { opacity: 0, y: 20 });
+            
+            // Porta su il menu dal basso
+            gsap.to(overlay, { bottom: "0%", duration: 0.8, ease: "power4.out", pointerEvents: "all" });
+            
+            // Fa apparire le voci dopo il movimento
+            gsap.to(menuItems, {
+                opacity: 1,
+                y: 0,
+                stagger: 0.15,
+                duration: 0.5,
+                delay: 0.3,
+                ease: "power2.out"
+            });
+            
+            gsap.to(".overlayMenu", {
+                opacity: 1,
+                y: 0,
+                stagger: 0.15,
+                duration: 0.5,
+                delay: 0.3,
+                ease: "power2.out"
+            });
+            
+            gsap.to(social, {
+                opacity: 1,
+                y: 0,
+                stagger: 0.15,
+                duration: 0.6,
+                delay: 1,
+                ease: "power2.out"
+            });
+            
+            gsap.to(meet, {
+                opacity: 1,
+                y: 40,
+                stagger: 0.15,
+                duration: 0.6,
+                delay: 1,
+                ease: "power2.out"
+            });
+            
+            gsap.to(names, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: 1,
+                ease: "power2.out"
+            });
+        }
+        
+        function closeMenu() {
+            // Fa sparire il menu abbassandolo
+            gsap.to(overlay, { bottom: "-100%", duration: 1, ease: "power4.in", pointerEvents: "none" });
+            
+            // Nasconde di nuovo le voci
+            gsap.to(".overlayMenu", { opacity: 0, y: 50, duration: 0.3 });
+            
+            gsap.to(menuItems, { opacity: 0, y: 50, duration: 0.3 });
+            
+            gsap.to(social, {
+                opacity: 0,
+                y: -10,
+                duration: 0.1,
+                delay: 0.3,
+                ease: "power2.out"
+            });
+            
+            gsap.to(meet, {
+                opacity: 0,
+                y: 50,
+                duration: 0.3,
+                delay: 0.3,
+                ease: "power2.out"
+            });
+            
+            gsap.to(names, {
+                opacity: 0,
+                y: -10,
+                duration: 0.3,
+                delay: 0.3,
+                ease: "power2.out"
+            });
+        }
+        
+        menuButton.addEventListener("click", openMenu);
+        closeButton.addEventListener("click", closeMenu);
+        
+        // Aggiungi un event listener a ciascun elemento del menu per chiudere il menu al click
+        menuItems.forEach(item => {
+            item.addEventListener("click", closeMenu);
+        });
+    });
+}
+menuOverlay();
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuTrigger = document.getElementById("menuTrigger");
+    const overlay = document.querySelector(".toTheTop");
+    
+    menuTrigger.addEventListener("click", function (e) {
+        e.preventDefault();
+        
+        // 1. L'overlay sale coprendo tutto
+        gsap.to(overlay, {
+            top: 0, // Sale
+            duration: 0.5,
+            ease:"none",
+            onComplete: function () {
+                // 2. Riporta la pagina in alto dopo che è salito
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                
+                // 3. Dopo 1 secondo l'overlay riscende automaticamente
+                gsap.to(overlay, {
+                    top: "100vh", // Scende
+                    duration: 1,
+                    delay: 1, // Aspetta 1 secondo prima di scendere
+                    ease: "power4.inOut",
+                });
+            }
+        });
+    });
+});
+
+
+
+
+function textRolling (){
+    let elements = document.querySelectorAll('.rolling-text');
+    
+    elements.forEach((element)=>{
+        let innerText = element.innerText;
+        element.innerHTML ="";
+        
+        let textContainer = document.createElement("div");
+        textContainer.classList.add("block");
+        
+        for(let letter of innerText){
+            let span = document.createElement("span");
+            span.innerText = letter.trim() === "" ? "\xa0" : letter;
+            span.classList.add("letter");
+            textContainer.appendChild(span);
+        }
+        
+        element.appendChild(textContainer);
+        element.appendChild(textContainer.cloneNode(true));
+    });
+    elements.forEach((element) =>{
+        element.addEventListener("mouseover", ()=>{
+        });
+    })
+}
+
+textRolling();
+
+
+// backstage
+function engineMatterJS (){
+    
+    //backstage inizio
+    const Engine = Matter.Engine;
+    const World = Matter.World;
+    const Bodies = Matter.Bodies;
+    const Body = Matter.Body;
+    const Render = Matter.Render;
+    
+    let engine;
+    let render;
+    let backstagePhotos = [];
+    let lastMouseX = -1;
+    let lastMouseY = -1;
+    
+    function setup() {
+        // Crea il canvas e imposta le dimensioni
+        const canvas = document.getElementById('matter-canvas');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        // Crea il motore fisico
+        engine = Engine.create();
+        engine.world.gravity.y = 0;
+        
+        // Crea il renderer
+        render = Render.create({
+            element: document.querySelector('.Backstage'),
+            engine: engine,
+            
+            
+            options: {
+                width: window.innerWidth,
+                height: window.innerHeight,
+                wireframes: false,
+                background: 'white'
+                
+            }
+        });
+        
+        // Aggiungi i confini del mondo
+        addBoundaries();
+        
+        // Crea gli oggetti fisici
+        for (let i = 0; i < 15; i++) {
+            let x = Math.random() * (window.innerWidth - 200) + 100;
+            let y = Math.random() * (window.innerHeight - 200) + 100;
+            backstagePhotos.push(new Backstage(x, y, `./Backstage/backstage${i + 1}.jpg`));
+        }
+        
+        // Esegui il renderer
+        Render.run(render);
+        
+        
+        // Sostituisci Engine.run(engine) con:
+        const runner = Matter.Runner.create();
+        Matter.Runner.run(runner, engine);
+    }
+    
+    function addBoundaries() {
+        const thickness = 50;
+        World.add(engine.world, [
+            Bodies.rectangle(window.innerWidth / 2, -thickness / 2, window.innerWidth, thickness, { isStatic: true }),
+            Bodies.rectangle(window.innerWidth / 2, window.innerHeight + thickness / 2, window.innerWidth, thickness, { isStatic: true }),
+            Bodies.rectangle(-thickness / 2, window.innerHeight / 2, thickness, window.innerHeight, { isStatic: true }),
+            Bodies.rectangle(window.innerWidth + thickness / 2, window.innerHeight / 2, thickness, window.innerHeight, { isStatic: true })
+        ]);
+    }
+    
+    class Backstage {
+        constructor(x, y, imagePath) {
+            let options = {
+                frictionAir: 0.075,
+                restitution: 0.55,
+                density: 0.002,
+                angle: Math.random() * Math.PI * 2,
+            };
+            
+            // let options = {
+            //     frictionAir: 0.02,   // Riduce l'attrito dell'aria
+            //     restitution: 0.6,    // Aumenta il rimbalzo
+            //     density: 0.001,      // Rende gli oggetti più leggeri
+            // };
+            
+            this.body = Bodies.rectangle(x, y, 100, 200, options);
+            World.add(engine.world, this.body);
+            
+            this.div = document.createElement("div");
+            this.div.className = "backstagePhotos";
+            this.div.style.position = "absolute";
+            this.div.style.left = `${this.body.position.x - 50}px`;
+            this.div.style.top = `${this.body.position.y - 100}px`;
+            const img = document.createElement("img");
+            img.src = imagePath;
+            this.div.appendChild(img);
+            
+            // Aggiungi il div al contenitore newBackstage
+            document.querySelector('.newBackstage').appendChild(this.div);
+        }
+        
+        update() {
+            this.div.style.left = `${this.body.position.x - 50}px`;
+            this.div.style.top = `${this.body.position.y - 100}px`;
+            this.div.style.transform = `rotate(${this.body.angle}rad)`;
+        }
+    }
+    
+    function dist(x1, y1, x2, y2) {
+        return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+    }
+    
+    function mouseMoved(event) {
+        if (Math.abs(event.clientX - lastMouseX) > 10 || Math.abs(event.clientY - lastMouseY) > 10) {
+            lastMouseX = event.clientX;
+            lastMouseY = event.clientY;
+            
+            backstagePhotos.forEach((item) => {
+                if (dist(event.clientX, event.clientY, item.body.position.x, item.body.position.y) < 150) {
+                    let forceMagnitude = 1.50;
+                    Body.applyForce(
+                        item.body,
+                        { x: item.body.position.x, y: item.body.position.y },
+                        { x: (Math.random() - 0.5) * forceMagnitude, y: (Math.random() - 0.5) * forceMagnitude }
+                        
+                    );
+                }
+            });
+        }
+    }
+    
+    // Avvia la simulazione
+    setup();
+    
+    // Aggiungi l'event listener per il movimento del mouse
+    document.addEventListener('mousemove', mouseMoved);
+    
+    // Aggiorna gli elementi nel loop di animazione
+    function updateElements() {
+        requestAnimationFrame(updateElements);
+        backstagePhotos.forEach((item) => item.update());
+    }
+    
+    // Avvia il loop di aggiornamento
+    updateElements();
+    //backstage fine
+}
+
+engineMatterJS();
+// fine backstage
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const menuLinks = document.querySelectorAll('.menu-item a');  
+    const sections = document.querySelectorAll('section');        
+
+    const observerOptions = {
+        rootMargin: "0px 0px -20% 0px",
+        threshold: 0.4
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const id = entry.target.getAttribute('id');
+            const correspondingLink = document.querySelector(`a[href="#${id}"]`);
+
+            if (entry.isIntersecting) {
+                correspondingLink?.classList.add('active');
+            } else {
+                correspondingLink?.classList.remove('active');
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
+
+    // ✅ Controllo manuale per la sezione "home"
+    function checkHomeSection() {
+        const firstSection = document.querySelector("#home");
+        const firstLink = document.querySelector(`a[href="#home"]`);
+
+        if (window.scrollY < 50) {  // Se l'utente è vicino all'inizio della pagina
+            firstLink?.classList.add('active');
+        } else {
+            firstLink?.classList.remove('active');
+        }
+    }
+
+    // Controllo all'avvio e su scroll
+    checkHomeSection();
+    window.addEventListener("scroll", checkHomeSection);
+});
+
+
+
+
+
+function shootsImageInContainer (){
+    document.addEventListener("DOMContentLoaded", function () {
+        const imgShoots = document.querySelectorAll(".imgShoots");
+        const toSeeContainer = document.querySelector(".toSeeContainer");
+        
+        imgShoots.forEach(img => {
+            img.addEventListener("mouseover", function () {
+                // Cambia l'immagine nello "schermo grande"
+                toSeeContainer.style.backgroundImage = `url(${img.src})`;
+                toSeeContainer.style.backgroundSize = "contain";
+                toSeeContainer.style.backgroundPosition = "center";
+            });
+            
+            img.addEventListener("mouseleave", function () {
+                // Rimuove l'immagine quando il mouse esce
+                toSeeContainer.style.backgroundImage = "";
+            });
+        });
+    });
+}
+shootsImageInContainer();
+
+
+
+
+// gsap.registerPlugin(ScrollToPlugin);
+
+// document.getElementById("menuTrigger").addEventListener("click", function (e) {
+//     e.preventDefault();
+    
+//     gsap.timeline()
+//     .set(".overlay", { visibility: "visible" }) // Rende visibile l'overlay
+//     .to(".overlay", {
+//         height: "100vh",
+//         duration: 1,
+//         ease: "power4.out",
+//     })
+//     .to(window, {
+//         scrollTo: { y: 0, autoKill: false },
+//         duration: 0.5,
+//         ease: "power2.inOut"
+//     }, "-=0.5") // Fa lo scroll verso l'alto mentre l'animazione avanza
+//     .to(".overlay", {
+//         opacity: 0,
+//         duration: 0.5,
+//         onComplete: () => {
+//             gsap.set(".overlay", { visibility: "hidden", height: "0", opacity: 1 });
+//         }
+//     });
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
