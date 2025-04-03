@@ -22,7 +22,7 @@
 html, body{
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 
@@ -713,8 +713,8 @@ a{
         gap: 2px;
     }
     .imgShoots{
-        width: 90px;
-        height: 200px;
+        width: 70px;
+        height: 180px;
         object-fit: cover;
     }
     .toSeeContainer{
@@ -726,8 +726,8 @@ a{
         gap: 2px;
     }
     .imgMoodboard{
-        width: 150px;
-        height: 150px;
+        width: 130px;
+        height: 130px;
     }
     .dollsParagraph{
         opacity: 1;
@@ -755,7 +755,7 @@ a{
     }
     .bottomText{
         font-size: 4vw;
-        bottom: 100px;
+        bottom: 150px;
     }
     .square{
         width: 300px;
@@ -778,7 +778,7 @@ a{
         margin-bottom: -25px;
     }
     .socials{
-        bottom: 100px;
+        bottom: 150px;
         line-height: 80%;
     }
     .social{
@@ -786,7 +786,7 @@ a{
     }
     .meeting{
         position: absolute;
-        bottom: 90px;
+        bottom: 140px;
         line-height: 200%;
     }
     .meet{
@@ -799,7 +799,7 @@ a{
         font-size: 13vw;
     }
     .sectionTitles{
-        bottom: 100px;
+        bottom: 150px;
     }
     .videoTrailer{
         height: 350px;
