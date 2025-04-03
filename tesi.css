@@ -443,6 +443,7 @@ a{
     position: absolute;
     bottom: -15px;
     font-weight: 200;
+    color: #161616;
 }
 .clickMeDolls:hover{
     text-decoration: none;
@@ -832,13 +833,16 @@ a{
     .dollsParagraph{
         font-size: 4.5vw;
     }
+    .clickMeDolls{
+        bottom: -20px;
+    }
     .dollsContainer{
         flex-direction: column;
         gap: 30px;
     }
     .imgDoll{
-        height: 200px;
-        width: 120px;
+        height: 150px;
+        width: 100px;
     }
     .newConceptParagraph{
         column-count: 1;

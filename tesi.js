@@ -95,7 +95,7 @@ function preloading() {
         pageContent.classList.remove("d-none");
         loading.classList.add("d-none");
         
-    }, 1); // 4 secondi
+    }, 4000); // 4 secondi
 }
 
 
