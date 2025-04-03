@@ -831,6 +831,13 @@ a{
     .sectionTitles{
         display: none;
     }
+
+    .development{
+        position: absolute;
+        left: 30px;
+        text-align: left;
+        bottom: 250px;
+    }
     
 }
 
