@@ -54,6 +54,7 @@ html, body{
 }
 /* fine caricamento */
 
+
 nav{
     position: fixed;
     top: 0;
@@ -90,6 +91,7 @@ nav .menu{
     background: transparent;
     border: none;
     z-index: 1000;
+    color: #161616;
 }
 
 nav .title{
@@ -123,6 +125,16 @@ nav .title{
     font-size: 1vw;
     transform: translate(25px, -5px);
 }
+
+nav .closeButton{
+    color: white;
+}
+
+.videoTrailer{
+    height: 450px;
+    width: 450px;
+}
+
 
 
 
@@ -575,7 +587,7 @@ a{
 .toSeeContainer p{
     z-index: -1;
     text-transform: uppercase;
-font-weight: 200;
+    font-weight: 200;
 }
 
 
@@ -711,6 +723,7 @@ font-weight: 200;
     .imgMoodboardContainer{
         grid-template-columns: repeat(2, 0fr);
         grid-template-rows: repeat(4, 0fr);
+        gap: 2px;
     }
     .imgMoodboard{
         width: 150px;
@@ -742,6 +755,7 @@ font-weight: 200;
     }
     .bottomText{
         font-size: 4vw;
+        bottom: 100px;
     }
     .square{
         width: 300px;
@@ -764,7 +778,7 @@ font-weight: 200;
         margin-bottom: -25px;
     }
     .socials{
-        bottom: 60px;
+        bottom: 100px;
         line-height: 80%;
     }
     .social{
@@ -772,7 +786,7 @@ font-weight: 200;
     }
     .meeting{
         position: absolute;
-        bottom: 50px;
+        bottom: 90px;
         line-height: 200%;
     }
     .meet{
@@ -784,6 +798,14 @@ font-weight: 200;
         font-weight: 300;
         font-size: 13vw;
     }
+    .sectionTitles{
+        bottom: 100px;
+    }
+    .videoTrailer{
+        height: 350px;
+        width: 350px;
+    }
+    
 }
 
 @media screen and (max-width: 376px) {
@@ -795,7 +817,7 @@ font-weight: 200;
         height: 160px;
         object-fit: cover;
     }
-
+    
     .imgMoodboardContainer{
         grid-template-columns: repeat(2, 0fr);
         grid-template-rows: repeat(4, 0fr);
@@ -805,7 +827,12 @@ font-weight: 200;
         width: 120px;
         height: 120px;
     }
+    
+    .sectionTitles{
+        display: none;
     }
+    
+}
 
 
 
