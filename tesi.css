@@ -695,7 +695,7 @@ a{
 
 @media screen and (max-width: 500px) and (orientation: portrait) {
     .development{
-        bottom: 455px;
+        bottom: 350px;
     }
     .production{
         top: 240px;
