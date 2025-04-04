@@ -750,18 +750,18 @@ a{
 .noContentMessage{
     height: 100vh;
     width: 100%;
-    background-color: rgb(151, 42, 42);
     position: relative;
     display: none;
+    background-color: #fff!important;
 }
 
 
 .textNoContent{
     font-size: 4vw;
-    font-family: var(--myfontSERIF);
+    font-weight: 100;
     text-transform: uppercase;
     font-weight: 500;
-    color: white;
+    color: black;
     position: absolute;
     left: 30px;
     top: 30px;
@@ -776,6 +776,7 @@ a{
 @media screen and (max-width: 500px) and (orientation: portrait) {
     html,body{
         overflow: visible;
+        overflow-x: hidden!important;
     }
     .others{
         left: 30px;
@@ -834,8 +835,11 @@ a{
         gap: 30px;
     }
     .imgDoll{
-        height: 150px;
-        width: 100px;
+        height: 200px;
+        width: 200px;
+        background-color: #161616;
+        background-size: cover;
+        background-position: 0px 0;
     }
     .newConceptParagraph{
         column-count: 1;
@@ -931,7 +935,6 @@ a{
     .noContentMessage{
         height: 100vh;
         width: 100%;
-        background-color: rgb(62, 62, 62)!important;
         position: relative;
         display: flex;
         overflow: hidden;
