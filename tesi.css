@@ -823,9 +823,10 @@ a{
     }
     .dollName{
         font-size: 5vw;
+        bottom: 90px;
     }
     .dollsParagraph{
-        font-size: 4.5vw;
+        font-size: 3.5vw;
     }
     .clickMeDolls{
         bottom: -20px;
