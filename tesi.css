@@ -196,7 +196,7 @@ nav .closeButton{
     position: absolute;
     inset: 0 0 0 0;
     content: attr(data-content);
-    color: rgb(212, 212, 212);
+    color: rgb(212, 212, 212)!important;
     z-index: 5;
 }
 
@@ -891,7 +891,7 @@ a{
         font-size: 13vw;
     }
     .sectionTitles{
-        bottom: 150px;
+        bottom: 30px;
     }
     .videoTrailer{
         height: 350px;
