@@ -99,6 +99,7 @@ nav .menu, .closeButton{
     color: white;
     cursor: pointer;
     background: transparent;
+    font-size: 1vw;
     
 }
 .closeButton{
@@ -724,7 +725,7 @@ a{
 
 .directors{
     position: absolute;
-    top: 110px;
+    top: 10vh;
     left: 30px;
     text-align: left;
 }
@@ -754,22 +755,22 @@ a{
 
 .production{
     position: absolute;
-    left: 30px;
-    top: 300px;
+    left: 1.5vw;
+    top: 35vh;
 }
 
 .others{
     position: absolute;
-    top: 110px;
-    right: 30px;
+    top: 10vh;
+    right: 1.5vw;
     text-align: right;
 }
 
 .development{
     position: absolute;
-    left: 30px;
+    left: 1.5vw;
     text-align: left;
-    bottom: 216px;
+    bottom: 20vh;
 }
 
 
@@ -917,7 +918,7 @@ a{
     }
     .menu-item{
         font-size: 5vw;
-        width: 100%;
+        width: 150%;
     }
     .menu-items{
         top: 8%;

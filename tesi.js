@@ -581,7 +581,7 @@ images.forEach((img) => {
 
 // Opzionale: reset quando esci dal container
 container.addEventListener('mouseleave', () => {
-    indicator.style.transform = `translate(-9999%, -9999%)`; 
+    indicator.style.transform = `translateX(-300%)`; 
 });
 
 
