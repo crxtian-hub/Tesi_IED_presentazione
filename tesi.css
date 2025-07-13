@@ -4,7 +4,7 @@
     --myfont:"AmoresaFont",sans-serif;
     --myfontSANS:"HelveticaFont",sans-serif;
     --myfontSERIF: "Bodoni Moda", serif;
-    
+    --myDarkColor:#161616;
 }
 
 @font-face {
@@ -20,9 +20,15 @@
 
 
 html, body{
-    width: 100%;
-    height: 100%;
     overflow: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: 0!important;
+    padding: 0!important;
+    height: 100%;
+    
+}
+*::selection{
+    background: var(--myMainC);
 }
 
 
@@ -40,10 +46,10 @@ html, body{
 }
 
 .loadingText{
-    font-family: var(--myfontSERIF);
-    font-size: 3vw;
+    font-size: 4vw;
     color: rgb(62, 62, 62);
     text-align: center;
+    font-weight: 200;
     line-height: 100%;
     text-transform: uppercase;
     opacity: 0;
@@ -51,26 +57,26 @@ html, body{
 
 .dots{
     font-size: 5vw;
+    font-weight: bold;
 }
 /* fine caricamento */
 
 
 nav{
     position: fixed;
-    top: 0;
-    z-index: 100;
-    color: rgb(62, 62, 62);
-    padding: 30px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    z-index: 101;
+    top: 2vw;
+    left: 0;
+    mix-blend-mode: difference;
+    height: 7%;
+    background-color: crimson;
 }
 
 .navOverlay{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    top: 2vw;
 }
 
 .navOverlay div{
@@ -84,22 +90,32 @@ nav div{
     padding-top: 5px;
 }
 
-nav .menu{
+nav .menu, .closeButton{
     font-family: var(--myfontSERIF);
-    transform: translateY(-5px);
     text-transform: uppercase;
-    background: transparent;
     border: none;
-    z-index: 1000;
-    color: #161616;
+    position: fixed;
+    right: 2vw;
+    color: white;
+    cursor: pointer;
+    background: transparent;
+    
 }
+.closeButton{
+    top: 2vw;
+    right: 2vw;
+    z-index: 1000000!important;
+}
+
 
 nav .title{
     transform: rotate(-12deg);
     line-height: 60%;
-    color: #161616;
-    z-index: 2;
-    margin-left: 3px;
+    color: white;
+    position: absolute;
+    left: 2vw;
+    height: 2vw;
+    width: 6vw;
 }
 
 
@@ -110,29 +126,44 @@ nav .title{
     width: 100vw;
     height: 100vh;
     z-index: 4000;
-    background-color: #161616;
+    
 }
 
 .through{
     font-size: 1vw;
+    position: absolute;
+    top: 0;
+    
 }
 
 .the{
-    transform: translate(12px);
+    position: absolute;
+    left: .8vw;
+    top: 30%;
 }
 
 .curtains{
     font-size: 1vw;
-    transform: translate(25px, -5px);
+    position: absolute;
+    left: 28%;
+    top: 50%;
+    
 }
 
 nav .closeButton{
-    color: white;
+    color: rgb(255, 43, 43);
+    top: 2vw;
+    cursor: pointer;
 }
 
+
 .videoTrailer{
-    height: 450px;
-    width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 30vw;
+    width: 30vw;
 }
 
 
@@ -150,35 +181,30 @@ nav .closeButton{
     justify-content: center;
     align-items: center;
     position: relative;
+    background-color: white;
+    z-index: -1;
+    border: 0;
 }
 
 .projectTitle{
     font-size: 10vw;
-    line-height: 80%;
-    position: relative;
+    position: absolute;
     mix-blend-mode: difference;
+    /* background-color: red; */
     z-index: 1;
     font-family: var(--myfont);
+    color: rgb(255, 255, 255);
+    
 }
-
-
-.projectTitle::after{
-    position: absolute;
-    inset: 0 0 0 0;
-    content: attr(data-content);
-    color: rgb(212, 212, 212);
-    z-index: 5;
-}
-
-
 .square {
     min-height: 100vh;
-    width: 800px;
+    width: 70vw;
     background-size: contain;
-    background-position: center; /* Centra l'immagine */
+    background-position: center;
     background-repeat: no-repeat; 
     position: absolute;
-    z-index: -1;
+    top: 0;
+    z-index: -100;
 }
 
 
@@ -189,17 +215,10 @@ nav .closeButton{
     bottom: 40px;
     font-size: 2.5vw;
     mix-blend-mode: difference;
+    color: white;
     font-weight: 200;
+    z-index: 9999;
 }
-
-.bottomText::after{
-    position: absolute;
-    inset: 0 0 0 0;
-    content: attr(data-content);
-    color: rgb(212, 212, 212)!important;
-    z-index: 5;
-}
-
 
 /* fine sezione 1 */
 
@@ -209,14 +228,15 @@ a{
 }
 
 .overlay{
-    background-color: rgb(22, 22, 22);
+    background-color: var(--myDarkColor);
     width: 100%;
     height: 100%;
-    position: fixed; /*da mettere fixed */
+    position: fixed;
     pointer-events: none;
     bottom: -100%;
     overflow: hidden;
-    z-index: 10000;
+    z-index: 100;
+    left: 0;
 }
 
 .overlay-menu{
@@ -224,16 +244,12 @@ a{
     left: 0;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    gap: 1em;
-    flex-direction: column;
-    position: relative;
 }
 
 .menu-items{
-    padding-top:90px;
     position: relative;
-    width: 100%;
+    top: 7vw;
+    width: 35%;
 }
 
 
@@ -242,26 +258,35 @@ a{
     z-index: 2;
     color: white;
     font-size: 3vw;
-    line-height: 100%;
+    line-height: 90%;
+}
+.movieArrow{
+    font-size: 1.5vw;
+    transform:translateX(.7vw) translateY(-.2vw);
+    /* position: absolute; */
+    transition: .5s ease-in-out;
+}
+.movie-item:hover .movieArrow{
+    transform:translateX(1.5vw) translateY(-.2vw) rotate(35deg);
+}
+.movie-item{
+    width: 12vw;
 }
 
-
 .item {
+    left: 2vw;
     color: white;
-    transform: translateX(30px);
     width: auto;
-    height: 55px;
+    height: 3vw;
     display: flex;
-    line-height: 60px;
+    line-height: 3vw;
     position: relative;
     z-index: 20;
     display: inline-block; 
     overflow: hidden;
     font-weight: 200;
     text-transform: lowercase;
-    margin-bottom: -10px;
 }
-
 
 .item.active {
     font-family: var(--myfontSERIF);
@@ -334,27 +359,37 @@ a{
 
 .meeting{
     position: absolute;
-    right: 30px;
-    bottom: 1%;
+    right: 3vw;
+    bottom: 3.5%;
     text-align: right;
     color: white;
-    display: flex;
-    flex-direction: column;
-    line-height: 570%;
-    display: inline-block;
 }
 
 .meet{
-    transform: translateY(45px);
+    position: absolute;
+    top: -5.5vw;
+    /* background-color: red; */
+    right: .5vw;
     opacity: 0;
+    font-size: 1.3vw;
 }
 
 .name{
     font-weight: 300;
-    font-size: 10vw;
+    font-size: 5vw;
     color: white;
-    position: relative;
     opacity: 0;
+    /* border: 1px solid red; */
+    line-height: 5vw;
+}
+.arrowbyName{
+    transform: rotate(35deg) translate(.5vw, -.5vw);
+    font-size: 3vw;
+    opacity: 0;
+    transition: .2s;
+}
+.name:hover .arrowbyName{
+    opacity: 1;
 }
 
 
@@ -366,14 +401,12 @@ a{
     width: 100%;
     position: relative;
     overflow: hidden;
+    background-color: white;
+    border: 0;
+    padding: 0;
 }
 
-.videoTrailer{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
+
 
 /* fine trailer */
 
@@ -384,7 +417,6 @@ a{
 
 
 .newConceptParagraph{
-    padding-left: 30px;
     font-size: 2vw;
     line-height: 120%;
     width: 85%;
@@ -393,6 +425,7 @@ a{
     font-weight: 200;
     column-count: 2;
     column-gap: 60px;
+    left: 3vw;
     text-align: justify;
     hyphens: auto;
 }
@@ -412,11 +445,11 @@ a{
 
 .imgDoll{
     position: relative;
-    left: 30px;
-    top: 98px;
-    height: 400px;
-    width: 250px;
-    background-size: contain; 
+    left: 2vw;
+    top: 7vw;
+    height: 35vw;
+    width: 22vw;
+    background-size: cover; 
     background-repeat: no-repeat;
     background-position: center; 
 }
@@ -441,9 +474,11 @@ a{
     background-color: transparent;
     text-decoration: underline;
     position: absolute;
-    bottom: -15px;
+    bottom: -2vw;
     font-weight: 200;
     color: #161616;
+    cursor: pointer;
+    font-size: 1.2vw;
 }
 .clickMeDolls:hover{
     text-decoration: none;
@@ -456,8 +491,10 @@ a{
     position: absolute;
     top: 30px;
     line-height: 120%;
-    width: 70%;
+    width: 80%;
     font-weight: 200;
+    column-count: 2;
+    column-gap: 3vw;
 }
 
 .dollName{
@@ -467,7 +504,7 @@ a{
     right: 30px;
     font-size: 3vw;
     text-transform: uppercase;
-    font-family: var(--myfontSERIF);
+    
 }
 
 .xClose{
@@ -479,19 +516,20 @@ a{
     border: 0;
     font-size: 1.5vw;
     text-decoration: underline;
+    cursor: pointer;
 }
 .xClose:hover{
     text-decoration: none;
 }
 
 .hera{
-    background-image: url(./Media/HERA1.jpg);
+    background-image: url(./Media/HERA1.webp);
 }
 .kiana{
-    background-image: url(./Media/KIANA2.jpg);
+    background-image: url(./Media/KIANA2.webp);
 }
 .amani{
-    background-image: url(./Media/AMANI2.jpg);
+    background-image: url(./Media/AMANI2.webp);
 }
 
 
@@ -499,22 +537,34 @@ a{
 
 /* inizio moodboard */
 .imgMoodboardContainer{
-    height: 100vh;
-    width: 100%;
+    height: fit-content;
+    width: fit-content;
     position: relative;
-    top: 102px;
+    top: 15vw;
     left: 30px;
     display: grid;
-    grid-template-columns: repeat(4, 0fr);
-    grid-template-rows: repeat(3, 0fr);
-    gap: 30px;
+    grid-template-columns: repeat(8, 0fr);
+    grid-template-rows: repeat(1, 0fr);
+    /* border: 1px solid crimson; */
+    gap: 15px;
+}
+.imgMoodboard {
+    width: 5vw;
+    height: 22vw;
+    object-fit: cover;
+    filter: blur(0vw);
+    cursor: cell;
+    transition: all 0.2s ease;
+}
+.imgMoodboard.blur {
+    filter: blur(0.2vw);
+    opacity: 0.6;
+}
+.imgMoodboard:hover {
+    width: auto;
+    object-fit: contain;
 }
 
-.imgMoodboard{
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-}
 
 .titleonWhite{
     mix-blend-mode: difference;
@@ -532,6 +582,7 @@ a{
     width: 100%;
     position: relative;
     overflow: hidden;
+    background-color: white;
 }
 
 .sectionTitles{
@@ -578,42 +629,54 @@ a{
 
 /*  shoots inizio */
 .imgShootsContainer{
-    height: 100vh;
-    width: 100%;
+    width: fit-content;
     position: relative;
     top: 102px;
     left: 30px;
     display: grid;
     grid-template-columns: repeat(3, 0fr);
     grid-template-rows: repeat(3, 0fr);
-    gap: 30px;
+    gap: 10px;
 }
 
 .imgShoots{
-    width: 150px;
-    height: 150px;
+    width: 10.5vw;
+    height: 10.5vw;
     object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
 }
 
 .toSeeContainer{
-    height: 510px;
-    width: 600px;
-    /* border: 3px solid var(--myBackgroundColor); */
-    
+    height: 41.5vw;
+    width: 41.5vw;
     position: absolute;
-    left: 570px;
+    left: 525px;
+    left: 35.8vw;
     top: 102px;
+    top: 6.9vw;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat; 
     transition: background-image 0.1s ease-in-out;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
+
+.toSeeSquareIndicator{
+    position: absolute;
+    width: 10.8vw;
+    height: 10.8vw;
+    outline: 1.5px solid var(--myDarkColor);
+    left: -.1vw;
+    top: -.15vw;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+    transform: translate(-450%,-300%);
+}
 .toSeeContainer p{
-    z-index: -1;
+    z-index: 1;
     text-transform: uppercase;
     font-weight: 200;
     font-size: .8vw;
@@ -625,14 +688,15 @@ a{
 
 /* inizio brandlist */
 .brandlistContainer {
-    width: 100%;
+    width: 100vw;
     overflow: hidden;
     white-space: nowrap;
-    background-color: #161616;/* Sfondo a contrasto */
-    padding: 10px 0;
+    background-color: #161616;
     position: absolute;
-    top: 50%;
+    top: 48%;
     transform: translate(0,-50%);
+    height: 23%;
+    display: flex;
 }
 
 .brandlist {
@@ -642,19 +706,17 @@ a{
     animation: scrollText 240s linear infinite;
     align-items: center;
     justify-content: center;
+    cursor: crosshair;
+    
 }
 
 .brandlistContent {
-    font-size: 8vw;
+    font-size: 7vw;
     font-weight: 100;
     text-transform: uppercase;
     color: white;
     display: flex;
-    gap: 0px;
-    cursor: crosshair;
 }
-
-
 
 .brandlist:hover {
     animation-play-state: paused;
@@ -693,11 +755,16 @@ a{
 
 .names{
     text-transform: uppercase;
-    font-family: var(--myfontSERIF);
     font-weight: 700 ;
     line-height: 130%;
     font-size: 2vw;
-    
+}
+.arrowbyNames{
+    transform: rotate(35deg) translateY(.3vw);
+    opacity: 0;
+}
+.names a:hover .arrowbyNames{
+    opacity: 1;
 }
 
 .production{
@@ -721,30 +788,6 @@ a{
 }
 
 
-
-
-.blackUnderline:hover{
-    transform-origin: left;
-    position: relative;
-}
-
-.blackUnderline::after{
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom:5px;
-    left: 0;
-    background-color: #3E3E3E;
-    transition: transform .25s ease-out;
-    transform-origin: bottom right;
-}
-
-.blackUnderline:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
 /* fine credits */
 
 .noContentMessage{
@@ -753,24 +796,23 @@ a{
     position: relative;
     display: none;
     background-color: #fff!important;
+    overflow: hidden;
 }
 
 
 .textNoContent{
     font-size: 4vw;
     font-weight: 100;
-    text-transform: uppercase;
     font-weight: 100!important;
     line-height: 120%;
-    color: black;
-    position: absolute;
+    color: var(--myDarkColor);
+    position: fixed;
     left: 30px;
     top: 30px;
 }
 
 .textNoContent span{
-    color: var(--myBackgroundColor);
-    font-family: var(--myfont);
+    font-family: var(--myfontSERIF);
     text-transform: none;
 }
 
@@ -780,67 +822,103 @@ a{
         overflow-x: hidden!important;
     }
     .others{
-        left: 30px;
+        left: 6vw;
         text-align: left;
-        top: 300px;
+        top: 50vh;
+        left: 1.5vw;
     }
     .development{
-        bottom: 180px;
+        bottom: 10vh;
+        left: 1.5vw;
     }
     .production{
-        top: 240px;
+        top: 29vh;
+        left: 1.5vw;
     }
     .names{
         font-size: 3vw;
     }
+    .arrowbyNames{
+        display: none;
+    }
+    .directors{
+        left: 1.5vw;
+    }
     .role{
         font-size: 2vw;
     }
+    .brandlistContainer {
+        height: 5%;
+        transform: rotate(-5deg);
+    }
     .brandlistContent {
-        font-size: 15vw;
+        font-size: 5vw;
     }
     .imgShootsContainer{
         gap: 2px;
+        display: grid;
+        grid-template-columns: repeat(1, 0fr);
+        grid-template-rows: repeat(8, 0fr);
+        left: 1vw;
+        top: 20%;
     }
     .imgShoots{
-        width: 100px;
-        height: 150px;
+        width: 15vw;
+        height: 5.6vh;
         object-fit: cover;
     }
+    .toSeeSquareIndicator{
+        width: 15.2vw;
+        height: 5.8vh;
+        transform: translate(0%,-100%);
+        
+    }
     .toSeeContainer{
+        top: 19.7%;
+        left: 20vw;
+        height: 53vh;
+        width: 94vw;
+    }
+    .toSeeContainer p{
         display: none;
     }
     .imgMoodboardContainer{
-        grid-template-columns: repeat(2, 0fr);
-        grid-template-rows: repeat(4, 0fr);
-        gap: 2px;
+        grid-template-columns: repeat(1, 0fr);
+        grid-template-rows: repeat(8, 0fr);
+        gap: .5vw;
+        left: 1.5vw;
+        
     }
     .imgMoodboard{
-        width: 110px;
-        height: 110px;
+        width: 12vw;
+        height: 10vh;
     }
     .xClose{
         font-size: 3vw;
     }
     .dollName{
         font-size: 5vw;
-        bottom: 120px;
+        bottom: 28vw;
     }
     .dollsParagraph{
         font-size: 3.5vw;
+        column-count: 1;
+        width: 85%;
+        top: 8%;
+        
     }
     .clickMeDolls{
-        bottom: -20px;
+        bottom: -4vw;
+        font-size: 3vw;
     }
     .dollsContainer{
         flex-direction: column;
-        gap: 30px;
+        gap: 7vw;
     }
     .imgDoll{
-        height: 180px;
-        width: 180px;
-        background-color: #161616;
-        background-size: cover;
+        height: 25vh;
+        width: 55vw;
+        background-size: contain;
         background-position: 0px 0;
     }
     .newConceptParagraph{
@@ -848,92 +926,83 @@ a{
         font-size: 3.5vw;
     }
     .bottomText{
-        font-size: 4vw;
-        bottom: 150px;
-    }
-    .square{
-        width: 300px;
-    }
-    .through{
         font-size: 3vw;
-    }
-    .the{
-        font-size: 2vw;
-    }
-    .curtains{
-        font-size: 3vw;
-        transform: translate(17px, 2px);
+        bottom: 25vw;
+        width: 40%;
+        text-align: center;
     }
     .menu-item{
-        color: white;
-        font-size: 7vw;
+        font-size: 5vw;
+        width: 100%;
+    }
+    .menu-items{
+        top: 8%;
     }
     .item {
-        margin-bottom: -25px;
+        height: 5.3vw;
+        line-height: 5.3vw;
+    }
+    .movieArrow{
+        display: none;
     }
     .socials{
-        bottom: 150px;
+        bottom: 28.5vw;
         line-height: 80%;
+        left: -4.2vw;
     }
     .social{
         font-size: 3vw;
     }
     .meeting{
-        position: absolute;
-        bottom: 140px;
-        line-height: 200%;
+        bottom: 28vw;
+        line-height: 140%;
     }
     .meet{
-        position: relative;
-        bottom: 20px;
-        font-size: 2.5vw;
-    }
-    .name{
-        font-weight: 300;
-        font-size: 13vw;
+        position: absolute;
+        top: -90%;
     }
     .sectionTitles{
-        bottom: 30px;
+        bottom: 5vw;
+        right: 2vw;
     }
     .videoTrailer{
-        height: 350px;
-        width: 350px;
+        height: 60vw;
+        width: 60vw;
+    }
+    .square{
+        top: 1.8%;
+        width: 90%;
+        height: fit-content;
+        background-position: 50 0%;
+        height: 1px!important;
+        background-size: contain;
+        min-height: 60vh;
+        top: 10%;
+        
+    }
+    .projectTitle{
+        top: 35%;
+    }
+    .through{
+        font-size: 2vw;
+        top: 1.2vw;
+    }
+    .the{
+        font-size: 1.5vw;
+        top: 2.5vw;
+        left: 2vw;
+    }
+    .curtains{
+        font-size: 2vw;
+        top: 3.5vw;
+        left: 3.5vw;
+        
     }
     
 }
 
-@media screen and (max-width: 376px) {
-    .imgShootsContainer{
-        gap: 2px;
-    }
-    .imgShoots{
-        width: 90px;
-        height: 160px;
-        object-fit: cover;
-    }
-    
-    .imgMoodboardContainer{
-        grid-template-columns: repeat(2, 0fr);
-        grid-template-rows: repeat(4, 0fr);
-        gap: 3px;
-    }
-    .imgMoodboard{
-        width: 120px;
-        height: 120px;
-    }
-    
-    .sectionTitles{
-        display: none;
-    }
-    
-    .development{
-        bottom: 100px;
-    }
-    
-}
 
-
-@media screen and (min-width: 500px) and (max-width: 1175px) {
+@media screen and (min-width: 500px) and (max-width: 1450px) {
     .noContentMessage{
         height: 100vh;
         width: 100%;
@@ -941,7 +1010,7 @@ a{
         display: flex;
         overflow: hidden;
     }
-    section, nav {
+    section, nav, .overlay {
         display: none !important;
         opacity: 0 !important;
         visibility: hidden !important;
@@ -949,7 +1018,7 @@ a{
         width: 0 !important;
         overflow: hidden !important;
         position: absolute !important;
-        top: -9999px !important; /* Sposta l'elemento fuori dallo schermo */
+        top: -9999px !important; 
     }
 }
 

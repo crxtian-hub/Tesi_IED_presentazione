@@ -4,7 +4,7 @@ function createTriangleFavicon() {
     canvas.height = 32;
     let ctx = canvas.getContext("2d");
     
-    // Imposta colore di sfondo (opzionale)
+    
     ctx.fillStyle = "#cdb4db"; // Cambia con il colore che vuoi
     
     // Disegna il triangolo equilatero invertito
@@ -24,6 +24,7 @@ function createTriangleFavicon() {
 }
 
 createTriangleFavicon();
+
 
 
 function preloading() {
@@ -61,8 +62,8 @@ function preloading() {
     
     gsap.to(".colLoading",{
         delay: 1.8,
-        duration: 2, //.5
-        y:-800,
+        duration: 3, //2 seconds
+        y:"-110%",
         ease: "power4.inOut"
     })
     
@@ -71,6 +72,7 @@ function preloading() {
         duration: 1.5,
         ease: "power4.inOut",
         scaleX: 0,  
+        zIndex:100,
         transformOrigin: "center", 
         height: "100vh", 
     })
@@ -108,26 +110,26 @@ function squareImage() {
         
         // Array con i percorsi delle immagini (cartella "Editorial")
         let images = [
-            "./Editorial/editorial1.jpg",
-            "./Editorial/editorial3.jpg",
-            "./makeup/makeup1.jpg",
-            "./Editorial/editorial4.jpg",
-            "./Editorial/editorial6.jpg",
-            "./Editorial/editorial2.jpg",
-            "./makeup/makeup2.jpg",
-            "./Editorial/editorial7.jpg",
-            "./Backstage/backstage26.jpg",
-            "./Editorial/editorial8.jpg",
-            "./Editorial/editorial9.jpg",
-            "./makeup/makeup3.jpg",
-            "./makeup/makeup6.jpg",
-            "./Backstage/backstage1.jpg",
-            "./Backstage/backstage19.jpg",
-            "./Backstage/backstage18.jpg",
-            "./Media/fotoBackground1.jpg",
-            "./Media/ok84.jpg",
-            "./Backstage/backstage14.jpg",
-            "./Backstage/backstage4.jpg",
+            "./Editorial/editorial1.webp",
+            "./Editorial/editorial3.webp",
+            "./makeup/makeup1.webp",
+            "./Editorial/editorial4.webp",
+            "./Editorial/editorial6.webp",
+            "./Editorial/editorial2.webp",
+            "./makeup/makeup2.webp",
+            "./Editorial/editorial7.webp",
+            "./Backstage/backstage26.webp",
+            "./Editorial/editorial8.webp",
+            "./Editorial/editorial9.webp",
+            "./makeup/makeup3.webp",
+            "./makeup/makeup6.webp",
+            "./Backstage/backstage1.webp",
+            "./Backstage/backstage19.webp",
+            "./Backstage/backstage18.webp",
+            "./Media/fotoBackground1.webp",
+            "./Media/ok84.webp",
+            "./Backstage/backstage14.webp",
+            "./Backstage/backstage4.webp",
         ];
         
         let index = 0;
@@ -184,8 +186,11 @@ function menuOverlay(){
         const social = document.querySelectorAll(".social");
         const meet = document.querySelectorAll(".meet");
         const names = document.querySelectorAll(".name");
+        let menuIsOpen = false; // stato del menu
         
         function openMenu() {
+            if (menuIsOpen) return; // se già aperto, esci
+            menuIsOpen = true;
             // Ripristina lo stato iniziale degli elementi
             gsap.set([menuItems, social, meet, names], { opacity: 0, y: 20 });
             
@@ -201,7 +206,12 @@ function menuOverlay(){
                 delay: 0.3,
                 ease: "power2.out"
             });
-            
+            gsap.to(menuButton, {
+                y:-150,
+                ease: "power2.out",
+                duration: 1,
+                autoAlpha:0
+            });
             gsap.to(".overlayMenu", {
                 opacity: 1,
                 y: 0,
@@ -210,7 +220,6 @@ function menuOverlay(){
                 delay: 0.3,
                 ease: "power2.out"
             });
-            
             gsap.to(social, {
                 opacity: 1,
                 y: 0,
@@ -239,7 +248,8 @@ function menuOverlay(){
         }
         
         function closeMenu() {
-            // Fa sparire il menu abbassandolo
+            if (!menuIsOpen) return; // se già chiuso, esci
+            menuIsOpen = false;
             gsap.to(overlay, { bottom: "-100%", duration: 1, ease: "power4.in", pointerEvents: "none" });
             
             // Nasconde di nuovo le voci
@@ -249,39 +259,54 @@ function menuOverlay(){
             
             gsap.to(social, {
                 opacity: 0,
-                y: -10,
-                duration: 0.1,
-                delay: 0.3,
+                duration: 0.5,
+                delay: 0.2,
                 ease: "power2.out"
             });
-            
+            gsap.to(menuButton, {
+                y:0,
+                ease: "power2.out",
+                duration: 1,
+                autoAlpha:1
+            });
             gsap.to(meet, {
                 opacity: 0,
-                y: 50,
-                duration: 0.3,
-                delay: 0.3,
+                duration: 0.5,
+                delay: 0.2,
                 ease: "power2.out"
             });
             
             gsap.to(names, {
                 opacity: 0,
-                y: -10,
-                duration: 0.3,
-                delay: 0.3,
+                duration: 0.5,
+                delay: 0.2,
                 ease: "power2.out"
             });
         }
+        // Event listener per aprire il menu con scroll solo se è chiuso
+        setTimeout(() => {
+            if (window.innerWidth > 500) {
+                window.addEventListener('wheel', function(event) {
+                    if (event.deltaY > 0 && !menuIsOpen) {
+                        openMenu();
+                    }
+                });
+            }
+        }, 4100);
         
         menuButton.addEventListener("click", openMenu);
         closeButton.addEventListener("click", closeMenu);
         
-        // Aggiungi un event listener a ciascun elemento del menu per chiudere il menu al click
         menuItems.forEach(item => {
             item.addEventListener("click", closeMenu);
         });
     });
 }
 menuOverlay();
+
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+});
 
 
 
@@ -363,7 +388,7 @@ function engineMatterJS (){
         for (let i = 0; i < 15; i++) {
             let x = Math.random() * (window.innerWidth - 200) + 100;
             let y = Math.random() * (window.innerHeight - 200) + 100;
-            backstagePhotos.push(new Backstage(x, y, `./Backstage/backstage${i + 1}.jpg`));
+            backstagePhotos.push(new Backstage(x, y, `./Backstage/backstage${i + 1}.webp`));
         }
         
         // Esegui il renderer
@@ -376,7 +401,7 @@ function engineMatterJS (){
     }
     
     function addBoundaries() {
-        const thickness = 50;
+        const thickness = 75;
         World.add(engine.world, [
             Bodies.rectangle(window.innerWidth / 2, -thickness / 2, window.innerWidth, thickness, { isStatic: true }),
             Bodies.rectangle(window.innerWidth / 2, window.innerHeight + thickness / 2, window.innerWidth, thickness, { isStatic: true }),
@@ -389,16 +414,10 @@ function engineMatterJS (){
         constructor(x, y, imagePath) {
             let options = {
                 frictionAir: 0.075,
-                restitution: 0.55,
-                density: 0.002,
+                restitution: 0.15,
+                density: 0.001,
                 angle: Math.random() * Math.PI * 2,
             };
-            
-            // let options = {
-            //     frictionAir: 0.02,   // Riduce l'attrito dell'aria
-            //     restitution: 0.6,    // Aumenta il rimbalzo
-            //     density: 0.001,      // Rende gli oggetti più leggeri
-            // };
             
             this.body = Bodies.rectangle(x, y, 100, 200, options);
             World.add(engine.world, this.body);
@@ -514,12 +533,64 @@ function textMenuActive(){
 textMenuActive();
 
 
+
+const moodImages = document.querySelectorAll('.imgMoodboard');
+
+moodImages.forEach(img => {
+    img.addEventListener('mouseenter', () => {
+        moodImages.forEach(other => {
+            if (other !== img) {
+                
+                other.classList.add('blur');
+                other.classList.remove('active');
+            } else {
+                other.classList.add('active');
+                other.classList.remove('blur');
+            }
+        });
+    });
+    
+    img.addEventListener('mouseleave', () => {
+        moodImages.forEach(other => {
+            other.classList.remove('blur');
+            other.classList.remove('active');
+        });
+    });
+});
+
+
+
+
+//! inizio delle imgContainer in shoots
+
+const indicator = document.querySelector('.toSeeSquareIndicator');
+const container = document.querySelector('.imgShootsContainer');
+const images = document.querySelectorAll('.imgShoots');
+
+images.forEach((img) => {
+    img.addEventListener('mouseenter', () => {
+        const imgRect = img.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        
+        const left = imgRect.left - containerRect.left;
+        const top = imgRect.top - containerRect.top;
+        
+        indicator.style.transform = `translate(${left}px, ${top}px)`;
+    });
+});
+
+// Opzionale: reset quando esci dal container
+container.addEventListener('mouseleave', () => {
+    indicator.style.transform = `translate(-9999%, -9999%)`; 
+});
+
+
 function shootsImageInContainer() {
     document.addEventListener("DOMContentLoaded", function () {
         const imgShoots = document.querySelectorAll(".imgShoots");
         const toSeeContainer = document.querySelector(".toSeeContainer");
         const hoverText = toSeeContainer.querySelector("p"); // Seleziona il <p>
-
+        
         imgShoots.forEach(img => {
             img.addEventListener("mouseover", function () {
                 // Cambia l'immagine nello "schermo grande"
@@ -532,7 +603,7 @@ function shootsImageInContainer() {
                     hoverText.style.display = "none";
                 }
             });
-
+            
             img.addEventListener("mouseleave", function () {
                 // Rimuove l'immagine quando il mouse esce
                 toSeeContainer.style.backgroundImage = "";
@@ -543,46 +614,48 @@ function shootsImageInContainer() {
     });
 }
 
+
+
 shootsImageInContainer(); // Chiama la funzione
 
 
 function dollsParagraphStory(){
-document.addEventListener("DOMContentLoaded", () => {
-    // Seleziona tutti i bottoni
-    const buttons = document.querySelectorAll('.clickMeDolls');
-    
-    // Aggiungi l'evento click a ciascun bottone
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Verifica quale classe del bottone è presente
-            let dollClass = "";
-            if (button.classList.contains("heraButton")) {
-                dollClass = "hera";
-            } else if (button.classList.contains("kianaButton")) {
-                dollClass = "kiana";
-            } else if (button.classList.contains("amaniButton")) {
-                dollClass = "amani";
-            }
-            
-            // Seleziona il container corrispondente
-            const container = document.querySelector(`.containerDollsParagraph.${dollClass}Paragraph`);
-            
-            // Mostra il container con la transizione
-            if (container) {
-                container.classList.add('show');
-            }
+    document.addEventListener("DOMContentLoaded", () => {
+        // Seleziona tutti i bottoni
+        const buttons = document.querySelectorAll('.clickMeDolls');
+        
+        // Aggiungi l'evento click a ciascun bottone
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Verifica quale classe del bottone è presente
+                let dollClass = "";
+                if (button.classList.contains("heraButton")) {
+                    dollClass = "hera";
+                } else if (button.classList.contains("kianaButton")) {
+                    dollClass = "kiana";
+                } else if (button.classList.contains("amaniButton")) {
+                    dollClass = "amani";
+                }
+                
+                // Seleziona il container corrispondente
+                const container = document.querySelector(`.containerDollsParagraph.${dollClass}Paragraph`);
+                
+                // Mostra il container con la transizione
+                if (container) {
+                    container.classList.add('show');
+                }
+            });
+        });
+        
+        // Chiudi i contenitori quando clicchi sul tasto Close
+        const closeButtons = document.querySelectorAll('.xClose');
+        closeButtons.forEach(closeButton => {
+            closeButton.addEventListener('click', () => {
+                const container = closeButton.closest('.containerDollsParagraph');
+                container.classList.remove('show');
+            });
         });
     });
-    
-    // Chiudi i contenitori quando clicchi sul tasto Close
-    const closeButtons = document.querySelectorAll('.xClose');
-    closeButtons.forEach(closeButton => {
-        closeButton.addEventListener('click', () => {
-            const container = closeButton.closest('.containerDollsParagraph');
-            container.classList.remove('show');
-        });
-    });
-});
 }
 dollsParagraphStory();
 
