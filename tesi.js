@@ -201,8 +201,8 @@ function menuOverlay(){
             gsap.to(menuItems, {
                 opacity: 1,
                 y: 0,
-                stagger: 0.15,
-                duration: 0.5,
+                stagger: 0.05,
+                duration: .8,
                 delay: 0.3,
                 ease: "power2.out"
             });

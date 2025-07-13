@@ -262,12 +262,12 @@ a{
 }
 .movieArrow{
     font-size: 1.5vw;
-    transform:translateX(.7vw) translateY(-.2vw);
+    transform:translateX(.7vw) translateY(-.7vw);
     /* position: absolute; */
     transition: .5s ease-in-out;
 }
 .movie-item:hover .movieArrow{
-    transform:translateX(1.5vw) translateY(-.2vw) rotate(35deg);
+    transform:translateX(1.5vw) translateY(-.6vw) rotate(35deg);
 }
 .movie-item{
     width: 12vw;
@@ -277,9 +277,9 @@ a{
     left: 2vw;
     color: white;
     width: auto;
-    height: 3vw;
+    height: 3.3vw;
     display: flex;
-    line-height: 3vw;
+    line-height: 3.3vw;
     position: relative;
     z-index: 20;
     display: inline-block; 
@@ -344,7 +344,7 @@ a{
     position: absolute;
     width: 100%;
     transform: scaleX(0);
-    height: 2px;
+    height: 1px;
     bottom:0;
     left: 0;
     background-color: white;
@@ -379,7 +379,6 @@ a{
     font-size: 5vw;
     color: white;
     opacity: 0;
-    /* border: 1px solid red; */
     line-height: 5vw;
 }
 .arrowbyName{
@@ -545,7 +544,6 @@ a{
     display: grid;
     grid-template-columns: repeat(8, 0fr);
     grid-template-rows: repeat(1, 0fr);
-    /* border: 1px solid crimson; */
     gap: 15px;
 }
 .imgMoodboard {
@@ -599,14 +597,7 @@ a{
 
 .mixblendmodeBackstage{
     mix-blend-mode: difference;
-}
-
-.mixblendmodeBackstage::after{
-    position: absolute;
-    inset: 0 0 0 0;
-    content: attr(data-content);
-    color: rgb(212, 212, 212);
-    z-index: 5;
+    color: white;
 }
 
 .backstagePhotos{
@@ -631,8 +622,8 @@ a{
 .imgShootsContainer{
     width: fit-content;
     position: relative;
-    top: 102px;
-    left: 30px;
+    top: 14%;
+    left: 2vw;
     display: grid;
     grid-template-columns: repeat(3, 0fr);
     grid-template-rows: repeat(3, 0fr);
@@ -651,26 +642,20 @@ a{
     height: 41.5vw;
     width: 41.5vw;
     position: absolute;
-    left: 525px;
     left: 35.8vw;
-    top: 102px;
-    top: 6.9vw;
+    top: 14%;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat; 
     transition: background-image 0.1s ease-in-out;
-    display: flex;
-    align-items: center;
 }
-
-
 .toSeeSquareIndicator{
     position: absolute;
     width: 10.8vw;
     height: 10.8vw;
     outline: 1.5px solid var(--myDarkColor);
-    left: -.1vw;
-    top: -.15vw;
+    left: -.17vw;
+    top: -.17vw;
     pointer-events: none;
     transition: transform 0.3s ease;
     transform: translate(-450%,-300%);
@@ -849,7 +834,6 @@ a{
     }
     .brandlistContainer {
         height: 5%;
-        transform: rotate(-5deg);
     }
     .brandlistContent {
         font-size: 5vw;
