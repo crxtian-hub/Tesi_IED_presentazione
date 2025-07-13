@@ -151,13 +151,6 @@ nav .title{
     
 }
 
-nav .closeButton{
-    color: rgb(255, 43, 43);
-    top: 2vw;
-    cursor: pointer;
-}
-
-
 .videoTrailer{
     position: absolute;
     top: 50%;
@@ -967,6 +960,9 @@ a{
     }
     .projectTitle{
         top: 35%;
+    }
+    nav .menu, .closeButton{
+        font-size: 2.5vw;
     }
     .through{
         font-size: 2vw;

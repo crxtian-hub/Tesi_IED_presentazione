@@ -108,7 +108,7 @@ function squareImage() {
     document.addEventListener("DOMContentLoaded", function () {
         let square = document.querySelector(".square");
         
-        // Array con i percorsi delle immagini (cartella "Editorial")
+        
         let images = [
             "./Editorial/editorial1.webp",
             "./Editorial/editorial3.webp",
@@ -133,41 +133,41 @@ function squareImage() {
         ];
         
         let index = 0;
-        let autoChangeInterval; // Variabile per memorizzare l'intervallo automatico
-        let mouseMoveTimeout; // Variabile per gestire il timeout del movimento del mouse
+        let autoChangeInterval; 
+        let mouseMoveTimeout; 
         
-        // Funzione che cambia l'immagine
+        
         function changeBackground() {
             square.style.backgroundImage = `url(${images[index]})`;
-            index = (index + 1) % images.length; // Loop infinito tra le immagini
+            index = (index + 1) % images.length; 
         }
         
-        // Funzione che cambia l'immagine velocemente quando il cursore si muove
+        
         function changeBackgroundOnMove(e) {
-            // Calcola la posizione orizzontale del cursore come percentuale della larghezza della finestra
+            
             let cursorX = e.clientX;
             let windowWidth = window.innerWidth;
             let percentage = cursorX / windowWidth;
             
-            // Usa la percentuale per determinare quale immagine mostrare
+            
             index = Math.floor(percentage * images.length);
             square.style.backgroundImage = `url(${images[index]})`;
             
-            // Resetta il timeout che riavvia l'auto-cambio delle immagini
+            
             clearTimeout(mouseMoveTimeout);
-            mouseMoveTimeout = setTimeout(startAutoChange, 1000); // Dopo 1 secondo senza movimento, riavvia l'auto cambio
+            mouseMoveTimeout = setTimeout(startAutoChange, 1000); 
         }
         
-        // Avvia il cambio automatico delle immagini ogni 2 secondi
+        
         function startAutoChange() {
-            clearInterval(autoChangeInterval); // Ferma l'intervallo precedente
-            autoChangeInterval = setInterval(changeBackground, 2000); // Cambia ogni 2 secondi
+            clearInterval(autoChangeInterval); 
+            autoChangeInterval = setInterval(changeBackground, 2000); 
         }
         
-        // Inizia con l'auto-cambio delle immagini
+        
         startAutoChange();
         
-        // Aggiungi l'evento mousemove per cambiare rapidamente l'immagine durante il movimento del cursore
+        
         window.addEventListener("mousemove", changeBackgroundOnMove);
     });
 }
@@ -202,7 +202,7 @@ function menuOverlay(){
                 opacity: 1,
                 y: 0,
                 stagger: 0.05,
-                duration: .8,
+                duration: .6,
                 delay: 0.3,
                 ease: "power2.out"
             });
