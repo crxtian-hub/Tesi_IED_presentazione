@@ -878,7 +878,7 @@ a{
     .buttonColorContainer{
         position: absolute;
         /* border: 1px solid red; */
-        bottom: 22vw;
+        bottom: 10.5%;
         left: 1.5vw;
         width: 83%;
         display: flex;
@@ -977,7 +977,7 @@ a{
         display: none;
     }
     .socials{
-        bottom: 28.5vw;
+        bottom: 20.5vw;
         line-height: 80%;
         left: -4.2vw;
     }
@@ -985,7 +985,7 @@ a{
         font-size: 3vw;
     }
     .meeting{
-        bottom: 28vw;
+        bottom: 20.5vw;
         line-height: 140%;
     }
     .meet{
