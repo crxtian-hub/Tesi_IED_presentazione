@@ -476,7 +476,14 @@ a{
 .clickMeDolls:hover{
     text-decoration: none;
 }
-
+.dollcloseup{
+    height: 15vw;
+    object-fit: cover;
+    width: 15vw;
+    position: absolute;
+    bottom: 2.5vw;
+    left: 2.5vw;
+}
 .dollsParagraph{
     font-size: 2vw;
     left: 30px;
@@ -802,17 +809,22 @@ a{
     }
     .others{
         left: 6vw;
-        text-align: left;
+        text-align: center;
         top: 50vh;
-        left: 1.5vw;
+        left: 0;
     }
     .development{
         bottom: 10vh;
-        left: 1.5vw;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        
     }
     .production{
         top: 29vh;
-        left: 1.5vw;
+        left: 0;
+        width: 100%;
+        text-align: center;
     }
     .names{
         font-size: 3vw;
@@ -821,7 +833,9 @@ a{
         display: none;
     }
     .directors{
-        left: 1.5vw;
+        left: 0;
+        width: 100%;
+        text-align: center;
     }
     .role{
         font-size: 2vw;
@@ -833,43 +847,75 @@ a{
         font-size: 5vw;
     }
     .imgShootsContainer{
-        gap: 2px;
+        gap: .6vw;
         display: grid;
-        grid-template-columns: repeat(1, 0fr);
-        grid-template-rows: repeat(8, 0fr);
+        grid-template-columns: repeat(10, 0fr);
+        grid-template-rows: repeat(1, 0fr);
         left: 1vw;
-        top: 20%;
+        top: 80%;
     }
     .imgShoots{
-        width: 15vw;
+        width: 9.7vw;
         height: 5.6vh;
         object-fit: cover;
     }
     .toSeeSquareIndicator{
-        width: 15.2vw;
+        width: 9.9vw;
         height: 5.8vh;
         transform: translate(0%,-100%);
         
     }
     .toSeeContainer{
         top: 19.7%;
-        left: 20vw;
+        left: 2vw;
         height: 53vh;
-        width: 94vw;
+        width: 95%;
+        background-size: cover!important;
     }
     .toSeeContainer p{
         display: none;
     }
+    .buttonColorContainer{
+        position: absolute;
+        /* border: 1px solid red; */
+        bottom: 22vw;
+        left: 1.5vw;
+        width: 83%;
+        display: flex;
+        flex-direction: column;
+        gap: .5vw;
+    }
+    .buttonColor:hover{
+        width: 100%;
+    }
+    .amaniColor{
+        background-color: #D2DDD1;
+    }.kianaColor{
+        background-color: #7F9899;
+    }.heraColor{
+        background-color: #B78F96;
+    }
+    .buttonColor{
+        width: 19.5vw;
+        height: 19.5vw;
+        border: 0;
+        /* border-radius: 50vw; */
+        transition: 1s ease;
+    }
     .imgMoodboardContainer{
-        grid-template-columns: repeat(1, 0fr);
-        grid-template-rows: repeat(8, 0fr);
+        grid-template-columns: repeat(4, 0fr);
+        grid-template-rows: repeat(4, 0fr);
         gap: .5vw;
         left: 1.5vw;
         
     }
+    .imgMoodboard:hover {
+        width: 19.5vw;
+        object-fit: cover;
+    }
     .imgMoodboard{
-        width: 12vw;
-        height: 10vh;
+        width: 19.5vw;
+        height: 25vh;
     }
     .xClose{
         font-size: 3vw;
@@ -877,6 +923,13 @@ a{
     .dollName{
         font-size: 5vw;
         bottom: 28vw;
+    }
+    .dollcloseup{
+        height: 50vw;
+        width: 50vw;
+        bottom: 28vw;
+        left: 8vw;
+        background-color: #161616;
     }
     .dollsParagraph{
         font-size: 3.5vw;
@@ -905,7 +958,7 @@ a{
     }
     .bottomText{
         font-size: 3vw;
-        bottom: 25vw;
+        bottom: 40vw;
         width: 40%;
         text-align: center;
     }
@@ -942,10 +995,14 @@ a{
     .sectionTitles{
         bottom: 5vw;
         right: 2vw;
+        font-size: 4vw;
     }
     .videoTrailer{
         height: 60vw;
         width: 60vw;
+    }
+    .newSections{
+        height: 95vh;
     }
     .square{
         top: 1.8%;
@@ -962,21 +1019,21 @@ a{
         top: 35%;
     }
     nav .menu, .closeButton{
-        font-size: 2.5vw;
+        font-size: 4.5vw;
     }
     .through{
-        font-size: 2vw;
-        top: 1.2vw;
+        font-size: 3vw;
+        top: 2.5vw;
     }
     .the{
-        font-size: 1.5vw;
-        top: 2.5vw;
-        left: 2vw;
+        font-size: 2.5vw;
+        top: 4.7vw;
+        left: 3vw;
     }
     .curtains{
-        font-size: 2vw;
-        top: 3.5vw;
-        left: 3.5vw;
+        font-size: 3vw;
+        top: 6.3vw;
+        left: 5.5vw;
         
     }
     
