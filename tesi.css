@@ -43,6 +43,7 @@ html, body{
     display: flex;
     align-items: center;
     justify-content: center;
+    left: 0;
 }
 
 .loadingText{
@@ -393,6 +394,7 @@ a{
     height: 100vh;
     width: 100%;
     position: relative;
+    border: 0;
     overflow: hidden;
     background-color: white;
     border: 0;
@@ -481,7 +483,7 @@ a{
     object-fit: cover;
     width: 15vw;
     position: absolute;
-    bottom: 2.5vw;
+    bottom: 3.5vw;
     left: 2.5vw;
 }
 .dollsParagraph{
@@ -569,6 +571,10 @@ a{
     mix-blend-mode: difference;
 }
 
+.buttonColor{
+    display: none;
+}
+
 
 
 /* fine moodboard */
@@ -592,14 +598,10 @@ a{
     text-transform: uppercase;
     font-family: var(--myfontSERIF);
     z-index: 50;
-    color: #161616;
-    
-}
-
-.mixblendmodeBackstage{
     mix-blend-mode: difference;
     color: white;
 }
+
 
 .backstagePhotos{
     position: absolute;
@@ -875,39 +877,46 @@ a{
     .toSeeContainer p{
         display: none;
     }
-    .buttonColorContainer{
+    .buttonColor{
+        width: 10vw;
+        height: 10vw;
+        border: 0;
+        /* border-radius: 50vw; */
+        transition: .3s ease-in-out;
+        display:block;
         position: absolute;
-        /* border: 1px solid red; */
-        bottom: 10.5%;
-        left: 1.5vw;
-        width: 83%;
-        display: flex;
-        flex-direction: column;
-        gap: .5vw;
+        /* transform: translate(-50%,-50%); */
+        left: 3%;
+        bottom: 2.5vh;
+        border-radius: 50vw;
+        z-index: 2;
     }
     .buttonColor:hover{
         width: 100%;
+        height: 100%;
+        border-radius: 0;
+        z-index: 0;
+        left: 0;
     }
-    .amaniColor{
-        background-color: #D2DDD1;
+    .heraColor{
+        background-color: #B78F96;
+        left: 0;
     }.kianaColor{
         background-color: #7F9899;
-    }.heraColor{
-        background-color: #B78F96;
+        left: 12.5%;
+    }.amaniColor{
+        background-color: #D2DDD1;
+        left: 25%;
     }
-    .buttonColor{
-        width: 19.5vw;
-        height: 19.5vw;
-        border: 0;
-        /* border-radius: 50vw; */
-        transition: 1s ease;
+    .basicColor{
+        background-color: white;
+        left: 37%;
     }
     .imgMoodboardContainer{
         grid-template-columns: repeat(4, 0fr);
-        grid-template-rows: repeat(4, 0fr);
+        grid-template-rows: repeat(1, 0fr);
         gap: .5vw;
-        left: 1.5vw;
-        
+        left: 0vw;
     }
     .imgMoodboard:hover {
         width: 19.5vw;
@@ -915,7 +924,8 @@ a{
     }
     .imgMoodboard{
         width: 19.5vw;
-        height: 25vh;
+        height: 30vh;
+        z-index: 45;
     }
     .xClose{
         font-size: 3vw;
@@ -927,7 +937,7 @@ a{
     .dollcloseup{
         height: 50vw;
         width: 50vw;
-        bottom: 28vw;
+        bottom: 32vw;
         left: 8vw;
         background-color: #161616;
     }
@@ -1036,7 +1046,18 @@ a{
         left: 5.5vw;
         
     }
-    
+    .loadingText{
+        font-size: 4.5vw;
+        color: rgb(62, 62, 62);
+        text-align: center;
+        font-weight: 200;
+        line-height: 100%;
+        text-transform: uppercase;
+        opacity: 0;
+    }
+    .colLoading{
+        height: 90vh;
+    }
 }
 
 
