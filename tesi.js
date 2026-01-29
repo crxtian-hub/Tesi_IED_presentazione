@@ -385,7 +385,7 @@ function engineMatterJS (){
         addBoundaries();
         
         // Crea gli oggetti fisici
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 25; i++) {
             let x = Math.random() * (window.innerWidth - 200) + 100;
             let y = Math.random() * (window.innerHeight - 200) + 100;
             backstagePhotos.push(new Backstage(x, y, `./Backstage/backstage${i + 1}.webp`));
