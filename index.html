@@ -1,9 +1,9 @@
 <!doctype html>
-<html  lang="en">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ThroughTheCurtains</title>
+    <title>Through The Curtains</title>
     
     <!-- inizio Google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,18 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Nova+Square&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     
     <!-- fine GF -->
-    
-    <div id="TOP" class="noContentMessage">
-        <div class="textNoContent">
-            please get nice and comfortable and lock this device. 
-            &mdash; <span>enjoy your experience</span> &mdash; in a bigger display or your phone.
-            <div>thank you.</div>
-            <div>best regards.</div>
-            &mdash; <span>Through the Curtains </span>directors
-        </div>
-    </div>
+</head>
+<body>
     <!-- Inizio caricamento -->
-    <section>
+    <section class="noSnap">
         <div id="loading" class="colLoading">
             <div class="loadingText">everyone thinks that we look perfect 
                 <div>please don't let them look</div>
@@ -39,21 +31,22 @@
     <!-- Inizio Page Content -->
     <div id="pageContent" class="d-none">
         
-        <div class="toTheTop"></div>
+        <!-- <div class="toTheTop"></div> -->
         
-        <!-- navbar  -->
-        
-        
-        
-        <!-- fine navbar -->
         <section id="home" class="section1">
             <div class="projectTitle">
                 Through the Curtains
+            </div>
+            <div class="projectTitleMask" aria-hidden="true">
+                <div class="projectTitle projectTitle--white">Through the Curtains</div>
             </div>
             <div class="square"></div>
             
             <div class="bottomText">
                 an editorial project by Alissa, Marina, Annachiara
+            </div>
+            <div class="bottomTextMask" aria-hidden="true">
+                <div class="bottomText bottomText--white">an editorial project by Alissa, Marina, Annachiara</div>
             </div>
         </section>
         
@@ -85,7 +78,7 @@
                         <a href="#Moodboard" class="item rolling-text">Moodboard</a>
                     </div>
                     <div class="menu-item">
-                        <a href="#BehindTheScenes" class="item rolling-text">behind the scenes</a>
+                        <a href="#Backstage" class="item rolling-text">Backstage</a>
                     </div> 
                     <div class="menu-item">
                         <a href="#Shoots" class="item rolling-text">Shoots</a>
@@ -103,27 +96,27 @@
                     </div>
                 </div>
                 <div class="socials">
-                    <a class="social underline" href="https://www.instagram.com/throughthecurtains/profilecard/?igsh=eTg3M2dqcXh4aWw5" target="_blank">instagram</a> 
-                    <div> <a class="social underline" href="https://www.tiktok.com/@throughthecurtains_?_t=8ruDrxXKcRa&_r=1" target="_blank">tiktok</a></div>
+                    <a class="social underline" href="https://www.instagram.com/throughthecurtains/profilecard/?igsh=eTg3M2dqcXh4aWw5" target="_blank">instagram
+                    </a>
+                    <div>
+                        <a class="social underline" href="https://www.tiktok.com/@throughthecurtains_?_t=8ruDrxXKcRa&_r=1" target="_blank">tiktok
+                        </a>
+                    </div>
                 </div>
                 
                 <div class="meeting">
-                    <p class="meet">meet the stylists</p>
                     <div>
-                        <a href="https://www.instagram.com/alissa.___/"  target="_blank" class="name">
-                            <ion-icon class="arrowbyName" name="arrow-up"></ion-icon>
+                        <a href="https://www.instagram.com/alissa.___/"  target="_blank" class="name underline">
                             ALISSA
                         </a>
                     </div>
                     <div>
-                        <a href="https://www.instagram.com/marinaqrnt/" target="_blank" class="name">
-                            <ion-icon class="arrowbyName" name="arrow-up"></ion-icon>
+                        <a href="https://www.instagram.com/marinaqrnt/" target="_blank" class="name underline">
                             MARINA
                         </a>
                     </div>
                     <div>
-                        <a href="https://www.instagram.com/awnjka/" target="_blank" class="name">
-                            <ion-icon class="arrowbyName" name="arrow-up"></ion-icon>
+                        <a href="https://www.instagram.com/awnjka/" target="_blank" class="name underline">
                             ANNACHIARA
                         </a>
                     </div>
@@ -133,7 +126,7 @@
         
         <!-- Fine prima Sezione -->
         
-    </head>
+    <!-- navbar -->
     <nav>
         <div class="title">
             <div class="through">Through</div> 
@@ -142,7 +135,7 @@
         </div>
         <button class="menu menuButton">menu</button>
     </nav>
-    <body>
+    <!-- navbar -->
         
         
         <!-- inizio Trailer -->
@@ -181,53 +174,55 @@
         </div>
         
         <div class="dollsContainer">
-            <div class="imgDoll hera">
-                <button class="clickMeDolls heraButton">Hera</button>
+            <div class="dollsTrack">
+                <div class="imgDoll hera" data-name="Hera">
+                    
+                </div>
+                <div class="imgDoll kiana" data-name="Kiana">
+                    
+                    
+                </div>
+                <div class="imgDoll amani" data-name="Amani">
+                    
+                </div>
             </div>
-            <div class="imgDoll kiana">
-                <button class="clickMeDolls kianaButton">Kiana</button>
-                
-            </div>
-            <div class="imgDoll amani">
-                <button class="clickMeDolls amaniButton">Amani</button>
-            </div>
+            <div class="dollCenterName" data-text="Hera">Hera</div>
         </div>
-    </section>
-    
-    <section>
+        
+        
+        
         <div class="containerDollsParagraph heraParagraph">
-            <div class="dollsParagraph">
-                Her porcelain face was flawlessly painted, with soft pink lips that never parted and eyes that shimmered with a lifeless, glassy perfection. But inside, Hera was far from serene. Every day, she watched the other dolls with their effortless grace, feeling a rage that bubbled hotter with each passing moment. It wasn’t that she hated them—she hated the charade, the unspoken rule that demanded she hide every crack, every flaw, every feeling. Her anger had nowhere to go. In the Doll House, emotions were forbidden, messy things that disrupted the illusion. So Hera played her part in the unending routine, all the while feeling the anger press against her chest like a storm waiting to break.
+            <div class="dollsParagraphWrap">
+                <div class="dollsParagraph">
+                    Hera’s face was perfect—painted lips sealed, glassy eyes unblinking. But inside, she seethed. The other dolls glided by, effortless, while she choked on the rule: hide every crack, every feeling. Rage simmered beneath her porcelain, trapped in a world where emotions were forbidden. She played her part, smiling, still, as the storm inside pressed harder against her ribs.
+                </div>
             </div>
             
             <img class="dollcloseup" src="makeup/makeup1.webp" alt="">
             
-            <div class="dollName">hera</div>
-            <button class="xClose">Back</button>
+            <button class="xClose rolling-text" aria-label="Close">close</button>
         </div>
         <div class="containerDollsParagraph kianaParagraph">
-            <div class="dollsParagraph">
-                Kiana was known as the most flawless of them all. Her porcelain skin gleamed without a single blemish, her hair cascaded in perfect braids, and her dresses were always immaculately pressed. But what the others admired as perfection was, for Kiana, an endless cycle of fear and rituals. Her days were consumed by routines she couldn’t abandon.
-                Every morning, she arranged her room, ensuring that everything faced precisely the same direction and at the exact same angle. If one thing was even slightly off, she would feel her chest tighten, a rising panic that only subsided when she corrected the mistake. She couldn’t stop it.
-                Kiana wasn’t sure when it had started, this need to control the small things in her world. Maybe it was the endless pressure to be perfect, the unspoken expectation that she, like all the dolls, must always glide gracefully, never falter. Her rituals became her way of fighting the chaos she felt beneath her polished surface.
+            <div class="dollsParagraphWrap">
+                <div class="dollsParagraph">
+                    Kiana was perfection—porcelain skin, flawless braids, dresses without a crease. But her beauty was a cage. Each morning, she aligned her room with obsessive precision: every object at the same angle, the same direction. A single misplaced item sent panic clawing up her chest, only easing when she fixed it. She didn’t know when the rituals began—perhaps when the pressure to be flawless, to glide like the other dolls, became too much. The rituals were her shield against the chaos beneath her polished surface.
+                </div>
+            </div>
+            <div class="dollcloseupcontainer">
+                <img class="dollcloseup" src="makeup/makeup5.webp" alt="">
+            </div>
+            <button class="xClose rolling-text" aria-label="Close">close</button>
+        </div>
+        <div class="containerDollsParagraph amaniParagraph">
+            <div class="dollsParagraphWrap">
+                <div class="dollsParagraph">
+                    Amani was delicate beauty and grace—porcelain cheeks, a willow-slim frame, every movement polished. But beneath the perfection, she was at war. After lights-out, she’d slip into the bathroom, where she stashed pastries and chocolates. One bite was rebellion; soon, she was gorging until her stomach ached, until she felt something like freedom. Then came the guilt, crushing as the perfection she could never escape.
+                </div>
             </div>
             <div class="dollcloseupcontainer">
                 <img class="dollcloseup" src="makeup/makeup3.webp" alt="">
             </div>
-            <div class="dollName">kiana</div>
-            <button class="xClose">Back</button>
-        </div>
-        <div class="containerDollsParagraph amaniParagraph">
-            <div class="dollsParagraph">
-                Amani was admired for her delicate beauty and poised demeanor. Her porcelain cheeks were always dusted with a soft blush, her figure slender and graceful, as though sculpted from perfection itself. But what the other dolls didn’t see was the battle raging within her—an endless cycle of indulgence and guilt she couldn’t escape.
-                Late at night, when the lights of the Doll House dimmed and the others retreated into their rooms, Amani would sneak into the bathroom where she hid pastries, chocolates, candies. At first, she would take just one, a small act of rebellion against the suffocating perfection. But one wasn’t enough.
-                Soon, she was devouring everything in sight, stuffing herself with sweets until her tiny porcelain stomach felt as though it might crack. In those moments, she felt alive—free from the unrelenting need to be perfect. But the feeling didn’t last.
-            </div>
-            <div class="dollcloseupcontainer">
-                <img class="dollcloseup" src="makeup/makeup2.webp" alt="">
-            </div>
-            <div class="dollName">amani</div>
-            <button class="xClose">Back</button>
+            <button class="xClose rolling-text" aria-label="Close">close</button>
         </div>
     </section>
     <!-- fine card bambole -->
@@ -237,29 +232,26 @@
     <section class="newSections" id="Moodboard">
         <div class="sectionTitles">Moodboard</div>
         <div class="imgMoodboardContainer">
-            <img src="./Media/fotomoodboard1.webp" alt="" class="imgMoodboard">
-            <img src="./Media/fotomoodboard2.webp" alt="" class="imgMoodboard">
-            <img src="./Media/fotomoodboard3.webp" alt="" class="imgMoodboard">
-            <img src="./Media/fotomoodboard4.webp" alt="" class="imgMoodboard">
-            <img src="./Media/fotomoodboard5.webp" alt="" class="imgMoodboard">
-            <img src="./Media/fotomoodboard6.webp" alt="" class="imgMoodboard">
-            <img src="./Media/fotomoodboard7.webp" alt="" class="imgMoodboard">
-            <img src="./Media/fotomoodboard8.webp" alt="" class="imgMoodboard">
+            <div class="moodboardCredits" aria-live="polite">
+                <div class="moodboardCreditRef">Reference</div>
+            </div>
+            <img src="./Media/fotomoodboard1.webp" alt="" class="imgMoodboard" data-ref="Olga Sherer, Maison Margiela">
+            <img src="./Media/fotomoodboard2.webp" alt="" class="imgMoodboard" data-ref="Dollhouse, Dina Goldstein">
+            <img src="./Media/fotomoodboard3.webp" alt="" class="imgMoodboard" data-ref="Melanie Martinez">
+            <img src="./Media/fotomoodboard4.webp" alt="" class="imgMoodboard" data-ref="Melanie Martinez">
+            <img src="./Media/fotomoodboard5.webp" alt="" class="imgMoodboard" data-ref="The Virgin Suicides, 1999">
+            <img src="./Media/fotomoodboard6.webp" alt="" class="imgMoodboard" data-ref="Atonement, 2007">
+            <img src="./Media/fotomoodboard7.webp" alt="" class="imgMoodboard" data-ref="Marie Antoinette">
+            <img src="./Media/fotomoodboard8.webp" alt="" class="imgMoodboard" data-ref="Melanie Martinez">
+            <img src="./Media/fotomoodboard9.webp" alt="" class="imgMoodboard" data-ref="The Virgin Suicides, 1999">
         </div>
-        <!-- <div class="buttonColorContainer"> -->
-            <button class="buttonColor heraColor"></button>
-            <button class="buttonColor kianaColor"></button>
-            <button class="buttonColor amaniColor"></button>
-            <button class="buttonColor basicColor"></button>
-        <!-- </div> -->
     </section>
     <!-- fine moodboard -->
     
     
     <!-- Inizio new backstage -->
-    <section id="BehindTheScenes" class="newBackstage">
-        <div class="sectionTitles mixblendmodeBackstage">behind the scenes</div>
-        <canvas id="matter-canvas"></canvas>
+    <section id="Backstage" class="newBackstage">
+        <div class="sectionTitles">Backstage</div>
     </section>
     <!-- fine backstage -->
     
@@ -267,7 +259,7 @@
     <!-- inizio shoots -->
     <section id="Shoots" class="newSections">
         
-        <div class="sectionTitles">Shoots</div>
+        <div class="sectionTitles shootsT">Shoots</div>
         <div class="imgShootsContainer">
             <div class="toSeeSquareIndicator"></div>
             <img src="./Editorial/editorial1.webp" alt="" class="imgShoots">
@@ -282,7 +274,7 @@
         </div>
         
         <div class="toSeeContainer">
-            <p>go with your mouse on left photos</p>
+            <!-- <p>go with your mouse on left photos</p> -->
         </div>
         
         
@@ -302,16 +294,6 @@
                     &otherstories &mdash; Lorenzo Seghezzi &mdash; Cornicouture &mdash; Lessico Familiare &mdash; Fabiana Filippi &mdash; 
                     Noia Milano &mdash; Hyperempty 
                 </div>
-                <div class="brandlistContent">
-                    &mdash; Noia Milano &mdash; Hyperempty &mdash; Prada &mdash; Nº21 &mdash; Tangoli &mdash; Max Mara &mdash; Dennj &mdash; Gentile Milano &mdash; 
-                    &otherstories &mdash; Lorenzo Seghezzi &mdash; Cornicouture &mdash; Lessico Familiare &mdash; Fabiana Filippi &mdash; 
-                    Noia Milano &mdash; Hyperempty
-                </div>
-                <div class="brandlistContent">
-                    &mdash; Noia Milano &mdash; Hyperempty &mdash; Prada &mdash; Nº21 &mdash; Tangoli &mdash; Max Mara &mdash; Dennj &mdash; Gentile Milano &mdash; 
-                    &otherstories &mdash; Lorenzo Seghezzi &mdash; Cornicouture &mdash; Lessico Familiare &mdash; Fabiana Filippi &mdash; 
-                    Noia Milano &mdash; Hyperempty &mdash;
-                </div>
             </div>
         </div>
     </section>
@@ -325,129 +307,141 @@
     
     <!-- inizio crediti -->
     
-    <section class="newSections" id="Credits">
+    <section class="newSections creditSection" id="Credits">
         <div class="sectionTitles">
             Credits
         </div>
-        
-        <div class="directors">
-            <div class="role">
-                art direction&mdash;styling
-            </div>
-            <div class="names">
-                <div>
-                    <a class="blackUnderline" href="https://www.instagram.com/awnjka/" target="_blank">
-                        Annachiara Biancaniello
-                        <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
-                    </a>
+        <div class="creditsRoll">
+            <div class="directors miniPar">
+                <div class="role">
+                    art direction&mdash;styling
                 </div>
-                <div>
-                    <a class="blackUnderline" href="https://www.instagram.com/marinaqrnt/" target="_blank">
-                        marina quaranta
-                        <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
-                    </a>
-                </div>
-                <div>
-                    <a class="blackUnderline" href="https://www.instagram.com/alissa.___/" target="_blank">
-                        alissa totaro
-                        <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
-                    </a>
+                <div class="names">
+                    <div>
+                        <a class="blackUnderline" href="https://www.instagram.com/awnjka/" target="_blank">
+                            Annachiara Biancaniello
+                            <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="blackUnderline" href="https://www.instagram.com/marinaqrnt/" target="_blank">
+                            marina quaranta
+                            <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="blackUnderline" href="https://www.instagram.com/alissa.___/" target="_blank">
+                            alissa totaro
+                            <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="production">
-            <div class="role">Direction&mdash;dop&mdash;editing</div>
-            <div class="names">
-                <a class="blackUnderline" href="https://www.instagram.com/giovanielettricifilm/" target="_blank">
-                    giovani elettrici film
-                    <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
-                </a>
-            </div>
-            <div class="role">photography</div>
-            <div class="names">
-                <a class="blackUnderline" href="https://www.instagram.com/martavaldegrani/" target="_blank">
-                    marta valdregani
-                    <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
-                </a>
-            </div>
-        </div>
-        
-        <div class="others">
-            <div class="role">Make-up</div>
-            <div class="names">
-                <div>
-                    <a class="blackUnderline" href="https://www.instagram.com/saraxxmua/" target="_blank">
+            
+            <div class="production miniPar">
+                <div class="role">Direction&mdash;dop&mdash;editing</div>
+                <div class="names">
+                    <a class="blackUnderline" href="https://www.instagram.com/giovanielettricifilm/" target="_blank">
+                        giovani elettrici film
                         <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
-                        sara martinelli
-                    </a>
-                </div>
-                <div>
-                    <a class="blackUnderline" href="https://www.instagram.com/muashya/" target="_blank">
-                        <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
-                        Alessia trotta
                     </a>
                 </div>
             </div>
-            <div class="role">cast</div>
-            <div class="names">
-                <div>
-                    <a class="blackUnderline" href="https://www.instagram.com/sii_caa/" target="_blank">
+
+            <div class="production miniPar">
+                <div class="role">photography</div>
+                <div class="names">
+                    <a class="blackUnderline" href="https://www.instagram.com/martavaldegrani/" target="_blank">
+                        marta valdregani
                         <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
-                        Jessica Jean-François
-                    </a>
-                </div>
-                <div>
-                    <a class="blackUnderline" href="https://www.instagram.com/jenn_sanchy/" target="_blank">
-                        <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
-                        Jennifer Sánchez Aguilar
-                    </a>
-                </div>
-                <div>
-                    <a class="blackUnderline" href="https://www.instagram.com/niar.fe/" target="_blank">
-                        <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
-                        Fernanda Silva Nascimento
-                    </a>
-                </div>
-            </div>
-            <div class="role">mentors</div>
-            <div class="names">
-                <div>
-                    <a class="blackUnderline" href="https://www.instagram.com/therealgiuliomartinelli/"  target="_blank">
-                        <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
-                        giulio martinelli
-                    </a>
-                </div>
-                <div>
-                    <a class="blackUnderline" href="https://www.instagram.com/marco.celotti/?hl=it" target="_blank">
-                        <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
-                        marco celotti
-                    </a>
-                </div>
-                <div>
-                    <a class="blackUnderline" href="https://www.instagram.com/fede.casi/?hl=it" target="_blank">
-                        <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
-                        federico casiraghi
                     </a>
                 </div>
             </div>
             
-            <div class="role">location</div>
-            <div class="names">
-                <a class="blackUnderline" href="https://www.instagram.com/comolakesofiaroom/"  target="_blank">
-                    <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
-                    sofia room como
-                </a>
+            <div class="others miniPar">
+                <div class="role">Make-up</div>
+                <div class="names">
+                    <div>
+                        <a class="blackUnderline" href="https://www.instagram.com/saraxxmua/" target="_blank">
+                            sara martinelli
+                            <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="blackUnderline" href="https://www.instagram.com/muashya/" target="_blank">
+                            Alessia trotta
+                            <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="development">
-            <div class="role">web&mdash;development</div>
-            <div class="names">
-                <a class="blackUnderline" href="https://github.com/crxtian-hub" target="_blank">
-                    cristian d'agostino
-                    <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
-                </a>
+
+            <div class="others miniPar">
+                <div class="role">cast</div>
+                <div class="names">
+                    <div>
+                        <a class="blackUnderline" href="https://www.instagram.com/sii_caa/" target="_blank">
+                            Jessica Jean François
+                            <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="blackUnderline" href="https://www.instagram.com/jenn_sanchy/" target="_blank">
+                            Jennifer Sánchez Aguilar
+                            <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="blackUnderline" href="https://www.instagram.com/niar.fe/" target="_blank">
+                            Fernanda Silva Nascimento
+                            <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="others miniPar">
+                <div class="role">mentors</div>
+                <div class="names">
+                    <div>
+                        <a class="blackUnderline" href="https://www.instagram.com/therealgiuliomartinelli/"  target="_blank">
+                            giulio martinelli
+                            <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="blackUnderline" href="https://www.instagram.com/marco.celotti/?hl=it" target="_blank">
+                            marco celotti
+                            <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
+                        </a>
+                    </div>
+                    <div>
+                        <a class="blackUnderline" href="https://www.instagram.com/fede.casi/?hl=it" target="_blank">
+                            federico casiraghi
+                            <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="others miniPar">
+                <div class="role">location</div>
+                <div class="names">
+                    <a class="blackUnderline" href="https://www.instagram.com/comolakesofiaroom/"  target="_blank">
+                        sofia room como
+                        <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="development miniPar">
+                <div class="role">motion&mdash;web development</div>
+                <div class="names">
+                    <a class="blackUnderline" href="https://www.instagram.com/crxtianhub/" target="_blank">
+                        cristian d'agostino
+                        <ion-icon class="arrowbyNames" name="arrow-up"></ion-icon>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -466,7 +460,8 @@
 </div>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js" integrity="sha512-f6bQMg6nkSRw/xfHw5BCbISe/dJjXrVGfz9BSDwhZtiErHwk7ifbmBEtF9vFW8UNIQPhV2uEFVyI/UHob9r7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
 <script src="./tesi.js"></script>
 </body>
