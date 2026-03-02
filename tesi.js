@@ -553,17 +553,25 @@ function textMenuActive(){
             threshold: 0.4
         };
         
+        function setActiveById(id) {
+            if (!id) return;
+            menuLinks.forEach(link => link.classList.remove('active'));
+            const correspondingLink = document.querySelector(`a[href="#${id}"]`);
+            correspondingLink?.classList.add('active');
+        }
+        
         const observer = new IntersectionObserver((entries) => {
+            let bestEntry = null;
             entries.forEach((entry) => {
-                const id = entry.target.getAttribute('id');
-                const correspondingLink = document.querySelector(`a[href="#${id}"]`);
-                
-                if (entry.isIntersecting) {
-                    correspondingLink?.classList.add('active');
-                } else {
-                    correspondingLink?.classList.remove('active');
+                if (!entry.isIntersecting) return;
+                if (!bestEntry || entry.intersectionRatio > bestEntry.intersectionRatio) {
+                    bestEntry = entry;
                 }
             });
+            if (bestEntry) {
+                const id = bestEntry.target.getAttribute('id');
+                setActiveById(id);
+            }
         }, observerOptions);
         
         sections.forEach((section) => observer.observe(section));
@@ -577,9 +585,10 @@ function textMenuActive(){
             const currentScrollY = isScrollLocked ? (lastScrollY || 0) : window.scrollY;
 
             if (currentScrollY < 50) {  // Se l'utente è vicino all'inizio della pagina
+                menuLinks.forEach(link => link.classList.remove('active'));
                 firstLink?.classList.add('active');
             } else {
-                firstLink?.classList.remove('active');
+                // lascia che l'IntersectionObserver gestisca l'active
             }
         }
         
