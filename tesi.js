@@ -258,6 +258,8 @@ function menuOverlay(){
             if (menuIsOpen) return; // se già aperto, esci
             menuIsOpen = true;
             lockScroll();
+            document.documentElement.classList.add("noScroll");
+            document.body.classList.add("noScroll");
             // Ripristina lo stato iniziale degli elementi
             gsap.set([menuItems, social, names], { opacity: 0, y:0 });
             
@@ -306,6 +308,8 @@ function menuOverlay(){
             if (!document.querySelector(".containerDollsParagraph.show")) {
                 unlockScroll();
             }
+            document.documentElement.classList.remove("noScroll");
+            document.body.classList.remove("noScroll");
             gsap.to(overlay, { bottom: "-100%", duration: 1, ease: "power4.in", pointerEvents: "none" });
             
             // Nasconde di nuovo le voci

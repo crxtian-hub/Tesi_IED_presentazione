@@ -33,6 +33,7 @@ html.noScroll,
 body.noScroll{
     overflow: hidden !important;
     height: 100%;
+    overscroll-behavior: none;
 }
 html.noSnap,
 body.noSnap{
@@ -331,6 +332,7 @@ a{
     overflow: hidden;
     z-index: 3000;
     left: 0;
+    touch-action: none;
 }
 
 .overlay-menu{
@@ -744,6 +746,7 @@ a{
     display: inline-block;
     line-height: 1;
     height: 1vw;
+    z-index: 50;
 }
 
 .xClose.rolling-text .rolling-face-out{
@@ -1194,14 +1197,14 @@ a{
     }
     .dollcloseup{
         height: 60vw;
-        width: 95vw;
-        left: 2.5vw;
+        width: 100vw;
         bottom: 0;
     }
     .dollsParagraphWrap{
-        font-size: 2.5vw;
+        font-size: 3vw;
         width: 95%;
-        top: 35%;
+        transform: translateX(-50%);
+        top: 24vh;
     }
     .dollsParagraph{
         font-size: 3vw;
@@ -1230,11 +1233,11 @@ a{
     }
     .newConceptParagraph{
         column-count: 1;
-        font-size: 2.8vw;
+        font-size: 3vw;
     }
     .bottomText{
         font-size: 3vw;
-        bottom: 20vw;
+        bottom: 40vw;
         width: 80%;
         text-align: center;
     }
@@ -1243,14 +1246,14 @@ a{
         font-size: 5.8vw;
     }
     .item.active {
-        font-size:5.5vw;
+        font-size:5.8vw;
     }
     .menu-item{
         font-size: 5.5vw;
         width: auto;
     }
     .menu-items{
-        top: 50%;
+        top: 45%;
         transform: translateY(-50%);
         width: 100%;
         align-items: center;
@@ -1264,7 +1267,6 @@ a{
         display: inline-block;
         font-size: 3.5vw;
         left: 105%;
-        
     }
     .socials{
         bottom: 2vw;
@@ -1284,7 +1286,7 @@ a{
         top: auto;
     }
     .sectionTitles{
-        bottom: 5vw;
+        bottom: 8vw;
         right: 2vw;
         font-size: 4vw;
     }
@@ -1293,7 +1295,10 @@ a{
         width: 60vw;
     }
     .newSections{
-        height: 95vh;
+        height: 100vh;
+    }
+    .square {
+        top:45%;
     }
     .section1{
         --hero-mask-top: 10%;
@@ -1301,7 +1306,7 @@ a{
     }
     .projectTitle{
         transform: translateY(-50%);
-        top: 50%
+        top: 45%
     }
     nav .menu, .closeButton{
         font-size: 4.5vw;
