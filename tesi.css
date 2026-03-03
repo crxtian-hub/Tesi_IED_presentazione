@@ -21,7 +21,7 @@
 
 html, body{
     /* overflow: hidden; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     border: 0!important;
     padding: 0!important;
     margin: 0!important;
@@ -99,7 +99,6 @@ body.noSnap{
 .dots{
     font-size: 4vw;
     font-weight: 200;
-    font-family: Arial, Helvetica, sans-serif;
 }
 /* fine caricamento */
 
@@ -351,14 +350,14 @@ a{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: .5vw;
+    gap: .15vw;
 }
 
 .menu-item{
     z-index: 2;
     color: white;
     font-size: 3vw;
-    height: 100%;
+    height: auto;
 }
 .movieArrow{
     font-size: 1.5vw;
@@ -388,9 +387,8 @@ a{
     z-index: 20;
     display: inline-block; 
     overflow: visible;
-    font-weight: 200;
-    text-transform: lowercase;
-    width: auto;
+    text-transform: capitalize;
+    width: 110%;
     font-size: 3vw;
     text-align: center;
 }
@@ -421,6 +419,8 @@ a{
     display: inline-block;
     position: relative;
     transform-style: preserve-3d;
+    overflow-y: hidden;
+    overflow-x: visible;
 }
 
 .rolling-text .rolling-face{
@@ -432,29 +432,30 @@ a{
     backface-visibility: hidden;
     transform-origin: 50% 50%;
     transition: transform .6s cubic-bezier(.17,.93,.83,.67);
-    
 }
 
 .rolling-text .rolling-face-in{
     transform-origin: 50% 0%;
-    transform: translateY(0%) rotateX(0deg);
+    transform: translateY(-12%) rotateX(0deg);
 }
 
 .rolling-text .rolling-face-out{
     transform-origin: 50% 100%;
     transform: translateY(12%) rotateX(-90deg);
     font-family: var(--myfontSERIF);
-    font-style: italic;
+    /* font-style: italic; */
     font-size: 3.2vw;
+    font-weight: 100;
+    text-transform: capitalize;
 }
 
 
 .rolling-text:hover .rolling-face-in{
-    transform: translateY(5%) rotateX(90deg);
+    transform: translateY(-12%) rotateX(90deg);
 }
 
 .rolling-text:hover .rolling-face-out{
-    transform: rotateX(0deg);
+    transform: translateY(-12%) rotateX(0deg);
 }
 
 .rolling-text .rolling-ghost{
@@ -476,6 +477,7 @@ a{
     font-size: 1.3vw;
     display: inline-block; 
     opacity: 0;
+    text-transform: uppercase;
 }
 
 
