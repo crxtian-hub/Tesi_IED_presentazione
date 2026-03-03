@@ -89,7 +89,7 @@ body.noSnap{
 
 .loadingText{
     font-size: 4vw;
-    color: rgb(62, 62, 62);
+    color: black;
     text-align: center;
     font-weight: 200;
     line-height: 100%;
@@ -98,7 +98,8 @@ body.noSnap{
 }
 .dots{
     font-size: 4vw;
-    font-weight: bold;
+    font-weight: 200;
+    font-family: Arial, Helvetica, sans-serif;
 }
 /* fine caricamento */
 
@@ -350,6 +351,7 @@ a{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: .5vw;
 }
 
 .menu-item{
@@ -357,8 +359,6 @@ a{
     color: white;
     font-size: 3vw;
     height: 100%;
-    line-height: 120%;
-    /* text-align: center; */
 }
 .movieArrow{
     font-size: 1.5vw;
@@ -407,7 +407,7 @@ a{
     font-family: var(--myfontSERIF);
     color: var(--myBackgroundColor)!important;
     pointer-events: none;
-    font-size:3vw;
+    font-size:3.2vw;
 }
 .item.active .rolling-face,
 .item.active .rolling-face-in,
@@ -445,14 +445,12 @@ a{
     transform: translateY(12%) rotateX(-90deg);
     font-family: var(--myfontSERIF);
     font-style: italic;
-    /* letter-spacing: 2px; */
-    /* color: crimson; */
     font-size: 3.2vw;
 }
 
 
 .rolling-text:hover .rolling-face-in{
-    transform: translateY(-12%) rotateX(90deg);
+    transform: translateY(5%) rotateX(90deg);
 }
 
 .rolling-text:hover .rolling-face-out{
@@ -510,8 +508,8 @@ a{
 
 .meeting{
     position: absolute;
-    right: 3vw;
-    bottom: 3vw;
+    right: 2vw;
+    bottom: 2vw;
     text-align: right;
     color: white;
     display: flex;
@@ -794,7 +792,7 @@ a{
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    z-index: 5;
+    z-index: 500;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
     pointer-events: none;
@@ -907,7 +905,6 @@ a{
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat; 
-    transition: background-image 0.1s ease-in-out;
     display: flex;
     align-items: center;
 }
@@ -1276,7 +1273,7 @@ a{
     }
     .socials{
         bottom: 2vw;
-        left: 2vw;
+        left: 3vw;
         gap: 0;
     }
     .social{
