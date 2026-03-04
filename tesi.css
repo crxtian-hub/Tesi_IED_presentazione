@@ -91,7 +91,6 @@ body.noSnap{
     font-size: 4vw;
     color: black;
     text-align: center;
-    font-weight: 200;
     line-height: 100%;
     text-transform: uppercase;
     opacity: 0;
@@ -764,6 +763,7 @@ a{
 
 .xClose.rolling-text:hover .rolling-face-out{
     transform: rotateX(0deg);
+    font-weight: 700;
 }
 
 
@@ -1333,7 +1333,7 @@ a{
     }
     .loadingText{
         font-size: 4.5vw;
-        color: rgb(62, 62, 62);
+        color: black;
         text-align: center;
         font-weight: 200;
         line-height: 100%;
