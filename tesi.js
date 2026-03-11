@@ -359,7 +359,7 @@ function textRolling() {
     const elements = document.querySelectorAll('.rolling-text');
     
     elements.forEach((element) => {
-        const innerText = element.innerText;
+        const innerText = (element.textContent || "").replace(/\s+/g, " ").trim();
         element.innerHTML = "";
         
         const front = document.createElement("span");
