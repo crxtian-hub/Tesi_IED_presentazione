@@ -759,6 +759,7 @@ a{
     color: black;
     font-family: Arial, Helvetica, sans-serif;
     transform: translateY(12%) rotateX(-90deg);
+    text-transform: uppercase;
 }
 
 .xClose.rolling-text:hover .rolling-face-out{
