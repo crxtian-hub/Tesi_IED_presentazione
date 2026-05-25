@@ -847,7 +847,7 @@ a{
 
 .sectionTitles{
     position: absolute;
-    bottom: 30px;
+    bottom: 48px;
     right: 30px;
     font-size: 3vw;
     text-transform: uppercase;
@@ -1229,11 +1229,11 @@ a{
     }
     .dollsTrack{
         flex-direction: row;
-        gap: 0vw;
+        gap: 28vw;
     }
     .imgDoll{
-        height: 80vh;
-        width: 70vw;
+        height: 56.7vw;
+        width: 46vw;
         background-size: cover;
         background-position: center;
     }
@@ -1292,7 +1292,7 @@ a{
         top: auto;
     }
     .sectionTitles{
-        bottom: 8vw;
+        bottom: 11vw;
         right: 2vw;
         font-size: 4vw;
     }
