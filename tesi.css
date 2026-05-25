@@ -362,7 +362,7 @@ a{
     font-size: 1.5vw;
     position: absolute;
     right: -1.8vw;
-    top: 55%;
+    top: 45%;
     transform: translateY(-50%);
     transition: .5s cubic-bezier(.17,.93,.83,.67);
 }
