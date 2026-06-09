@@ -1093,7 +1093,7 @@ a{
     text-transform: none;
 }
 
-@media screen and (max-width: 500px) and (orientation: portrait) {
+@media screen and (max-width: 700px) and (orientation: portrait) {
     html,body{
         overflow: visible;
         overflow-x: hidden!important;
@@ -1195,6 +1195,7 @@ a{
     }
     .xClose{
         font-size: 3vw;
+        height: 5vw;
         bottom: 0;
         top: 15vw;
     }
